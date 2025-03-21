@@ -1,0 +1,11 @@
+{
+  "name": "examples",
+  "version": "0.0.1",
+  "description": "vxe-table-middleware 案例参考",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "2100 <https://github.com/erqianyi>",
+  "license": "MIT"
+}

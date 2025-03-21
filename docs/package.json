@@ -1,0 +1,9 @@
+{
+  "name": "docs",
+  "version": "0.0.1",
+  "description": "vxe-table-middleware 说明文档",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
