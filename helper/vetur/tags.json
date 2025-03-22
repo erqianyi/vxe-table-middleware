@@ -1,0 +1,6 @@
+{
+  "vxe-grid-wrap": {
+    "attributes": ["instance"],
+    "description": "基于VxeGrid封装的表格组件"
+  }
+}

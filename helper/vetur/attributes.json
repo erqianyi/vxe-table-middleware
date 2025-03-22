@@ -1,0 +1,6 @@
+{
+  "vxe-grid-wrap/instance": {
+    "description": "由useVxeGrid创建的Grid实例",
+    "type": "object"
+  }
+}
