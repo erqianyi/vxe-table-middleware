@@ -4,23 +4,23 @@
  * @Author       : 34786
  * @Date         : 2025-02-21 16:45:49
  * @LastEditors  : Please set LastEditors
- * @LastEditTime : 2025-03-07 15:48:03
+ * @LastEditTime : 2025-03-22 14:04:17
  */
 import { isFunction } from 'xe-utils';
 export class ExtendAndProxyAPI {
-  constructor(CommonGridIns) {
-    this.gridComp = CommonGridIns;
+  constructor(VxeGridWrapIns) {
+    this.gridComp = VxeGridWrapIns;
   }
 
   _getFn(fnName, ...args) {
     if (!this.gridComp.$children[0]) {
-      throw new Error('[useCommonGrid] Grid尚未准备完成！尝试添加 $nextTick');
+      throw new Error('[useVxeGrid] Grid尚未准备完成！尝试添加 $nextTick');
     }
     const fn = this.gridComp.$children[0][fnName];
     if (fn && isFunction(fn)) {
       return fn(...args);
     } else {
-      throw new Error(`[useCommonGrid] gridApi.${fnName} is not a function`);
+      throw new Error(`[useVxeGrid] gridApi.${fnName} is not a function`);
     }
   }
 

@@ -6,8 +6,8 @@ import { FLAG_NAME, FLAG_ATTR } from '../components/vxe-grid-wrap';
 import { GridInstance } from '../utils/grid-instance';
 import { ExtendAndProxyAPI } from '../utils/extend-proxy-api';
 import { isElement, isPlainObject, has } from 'xe-utils';
-// 是否为CommonGrid组件实例
-function isCommonGrid(obj) {
+// 是否为VxeGridWrap组件实例
+function isVxeGridWrap(obj) {
   if (obj.$el) {
     return isElement(obj.$el) && obj.$el.getAttribute(FLAG_ATTR) === FLAG_NAME;
   }
@@ -56,7 +56,7 @@ CreateGridIns.gridApi = null;
  */
 function useVxeGrid(params) {
   if (!params) throw new Error('[useVxeGrid] params is required');
-  if (isCommonGrid(params)) {
+  if (isVxeGridWrap(params)) {
     // 返回api
     if (CreateGridIns.gridApi) return CreateGridIns.gridApi;
     else throw new Error('[useVxeGrid] Grid实例尚未创建');
