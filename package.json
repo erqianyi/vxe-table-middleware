@@ -30,5 +30,12 @@
     "vxe-pc-ui": "catalog:",
     "vxe-table": "catalog:",
     "xe-utils": "catalog:"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9"
+  },
+  "devDependencies": {
+    "rollup": "catalog:"
   }
 }
