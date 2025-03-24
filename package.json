@@ -6,7 +6,9 @@
   "module": "dist/es/index.esm.js",
   "typings": "types/index.d.ts",
   "scripts": {
-    "build": "rimraf dist && rollup -c"
+    "build": "rimraf dist && rollup -c",
+    "publish": "npm publish",
+    "publish:beta": "npm publish --tag=beta"
   },
   "repository": {
     "type": "git",
@@ -25,15 +27,25 @@
     "url": "https://github.com/erqianyi/vxe-table-middleware/issues"
   },
   "homepage": "https://github.com/erqianyi/vxe-table-middleware#readme",
+  "files": [
+    "dist",
+    "helper",
+    "types",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=10"
+  },
   "peerDependencies": {
     "vue": "catalog:",
     "vxe-pc-ui": "catalog:",
     "vxe-table": "catalog:",
     "xe-utils": "catalog:"
-  },
-  "engines": {
-    "node": ">=20",
-    "pnpm": ">=10"
   },
   "devDependencies": {
     "@babel/preset-env": "catalog:",

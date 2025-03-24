@@ -17,7 +17,7 @@ const banner = `/*!
 
 const formatMap = {
   esm: {
-    file: 'dist/es/index.js',
+    file: 'dist/es/index.esm.js',
     format: 'esm',
     banner,
   },
