@@ -1,0 +1,8 @@
+{
+  "cSpell.words": [
+    "rollup",
+    "vuepress"
+  ],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

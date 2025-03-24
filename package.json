@@ -8,7 +8,8 @@
   "scripts": {
     "build": "rimraf dist && rollup -c",
     "publish": "npm publish",
-    "publish:beta": "npm publish --tag=beta"
+    "publish:beta": "npm publish --tag=beta",
+    "prepare": "husky || true"
   },
   "repository": {
     "type": "git",
@@ -52,11 +53,19 @@
     "@rollup/plugin-json": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-strip": "catalog:",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "prettier": "3.5.3",
     "rimraf": "catalog:",
     "rollup": "catalog:",
     "rollup-plugin-babel": "catalog:",
     "rollup-plugin-commonjs": "catalog:",
     "rollup-plugin-terser": "catalog:",
     "rollup-plugin-vue": "catalog:"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write"
+    ]
   }
 }
