@@ -4,7 +4,7 @@ import type { OptionsHelperIns } from './options';
 import type { ColumnsHelperIns } from './columns';
 import type { EventsHelperIns } from './events';
 
-class GridComponent extends Vue {}
+export class GridComponent extends Vue {}
 type GridInstance = typeof GridComponent;
 
 export interface VxeGridWrapApi extends VxeGridMethods {

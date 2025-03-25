@@ -1,6 +1,6 @@
-import type { ValueOf, VxeTableEmits, VxeTableProEmits } from 'vxe-table';
+import type { ValueOf, VxeTableEmits } from 'vxe-table';
 
-type NoProEmits = Exclude<Exclude<ValueOf<VxeTableEmits>, ValueOf<VxeTableProEmits>>, 'update:data'>;
+type NoProEmits = Exclude<ValueOf<VxeTableEmits>, 'update:data'>;
 type GridExtraEmits =
   | 'page-change'
   | 'form-submit'

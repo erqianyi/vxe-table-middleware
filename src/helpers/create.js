@@ -11,7 +11,11 @@ function isVxeGridWrap(obj) {
   if (obj.$el) {
     return isElement(obj.$el) && obj.$el.getAttribute(FLAG_ATTR) === FLAG_NAME;
   }
-  return !isPlainObject(obj) && isElement(obj) && obj.getAttribute(FLAG_NAME) === FLAG_NAME;
+  return (
+    !isPlainObject(obj) &&
+    isElement(obj) &&
+    obj.getAttribute(FLAG_NAME) === FLAG_NAME
+  );
 }
 // 创建Grid的参数是否合法
 function validCreateParams(params) {

@@ -21,9 +21,13 @@ const VxeGridWrap = {
         ref: REF_NAME,
         attrs: { [FLAG_ATTR]: FLAG_NAME },
       },
-      [h('div', { ref: 'rootGrid' }, [instance && instance.$mount(this.$refs.rootGrid)])],
+      [
+        h('div', { ref: 'rootGrid' }, [
+          instance && instance.$mount(this.$refs.rootGrid),
+        ]),
+      ]
     );
   },
-}
+};
 
 export default VxeGridWrap;

@@ -1,4 +1,4 @@
-import { isPlainObject } from 'xe-utils'
+import { isPlainObject } from 'xe-utils';
 export const mergeWithArrayOverride = (target, source) => {
   for (const key in source) {
     if (target.hasOwnProperty(key)) {
@@ -12,4 +12,4 @@ export const mergeWithArrayOverride = (target, source) => {
     }
   }
   return target;
-}
+};

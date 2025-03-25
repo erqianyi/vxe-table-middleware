@@ -95,8 +95,10 @@ class ColumnsHelperClass {
    */
   showOverflow(showOverflow, extra = {}) {
     if (showOverflow) this.column['showOverflow'] = showOverflow;
-    if (extra.showHeaderOverflow) this.column['showHeaderOverflow'] = extra.showHeaderOverflow;
-    if (extra.showFooterOverflow) this.column['showFooterOverflow'] = extra.showFooterOverflow;
+    if (extra.showHeaderOverflow)
+      this.column['showHeaderOverflow'] = extra.showHeaderOverflow;
+    if (extra.showFooterOverflow)
+      this.column['showFooterOverflow'] = extra.showFooterOverflow;
     return this;
   }
   /**
@@ -107,8 +109,10 @@ class ColumnsHelperClass {
    */
   className(className, extra = {}) {
     if (className) this.column['className'] = className;
-    if (extra.headerClassName) this.column['headerClassName'] = extra.headerClassName;
-    if (extra.footerClassName) this.column['footerClassName'] = extra.footerClassName;
+    if (extra.headerClassName)
+      this.column['headerClassName'] = extra.headerClassName;
+    if (extra.footerClassName)
+      this.column['footerClassName'] = extra.footerClassName;
     return this;
   }
   /**
@@ -194,7 +198,8 @@ class ColumnsHelperClass {
    * @returns this
    */
   filterRecoverMethod(filterRecoverMethod) {
-    if (filterRecoverMethod) this.column['filterRecoverMethod'] = filterRecoverMethod;
+    if (filterRecoverMethod)
+      this.column['filterRecoverMethod'] = filterRecoverMethod;
     return this;
   }
   /**
@@ -208,7 +213,10 @@ class ColumnsHelperClass {
     if (content) options['content'] = content;
     if (icon) options['icon'] = icon;
     this.column['titlePrefix'] = options;
-    if (useHTML) console.error(`[columnsHelper] titlePrefix不建议使用useHTML，如有需要可使用slots`);
+    if (useHTML)
+      console.error(
+        `[columnsHelper] titlePrefix不建议使用useHTML，如有需要可使用slots`
+      );
     return this;
   }
   /**
@@ -222,7 +230,10 @@ class ColumnsHelperClass {
     if (content) options['content'] = content;
     if (icon) options['icon'] = icon;
     this.column['titleSuffix'] = options;
-    if (useHTML) console.error(`[columnsHelper] titleSuffix不建议使用useHTML，如有需要可使用slots`);
+    if (useHTML)
+      console.error(
+        `[columnsHelper] titleSuffix不建议使用useHTML，如有需要可使用slots`
+      );
     return this;
   }
   /**
@@ -278,7 +289,8 @@ class ColumnsHelperClass {
    * @returns this
    */
   params(params = {}) {
-    const valid = params && Object.prototype.toString.call(params) === '[object Object]';
+    const valid =
+      params && Object.prototype.toString.call(params) === '[object Object]';
     if (valid) this.column['params'] = Object.assign({}, params);
     return this;
   }

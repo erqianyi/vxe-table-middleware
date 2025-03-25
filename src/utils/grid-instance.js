@@ -1,11 +1,7 @@
 /*
  * @Description  : 创建Grid实例
- * @version      : 1.0.0
- * @Author       : 34786
- * @Date         : 2025-02-21 16:45:49
- * @LastEditors  : Please set LastEditors
- * @LastEditTime : 2025-03-22 14:05:18
  */
+
 import Vue from 'vue';
 import { mergeWithArrayOverride } from './merge-with-array-override';
 export class GridInstance {
@@ -43,9 +39,13 @@ export class GridInstance {
         updateOptions(options) {
           if (options && options._getOptions) {
             const opts = options._getOptions();
-            this.optionsConfig = { ...mergeWithArrayOverride(this.optionsConfig, opts) };
+            this.optionsConfig = {
+              ...mergeWithArrayOverride(this.optionsConfig, opts),
+            };
           } else {
-            throw new Error('[useVxeGrid] `updateOptions`方法参数必须为 optionsHelper实例');
+            throw new Error(
+              '[useVxeGrid] `updateOptions`方法参数必须为 optionsHelper实例'
+            );
           }
           return this.$nextTick();
         },
@@ -57,18 +57,27 @@ export class GridInstance {
         updateColumns(columns) {
           if (columns && columns._getColumns) {
             const cols = columns._getColumns();
-            if (cols.some(col => !col.field)) {
-              console.error('[useVxeGrid] 更新列失败，列配置项必须包含field属性');
+            if (cols.some((col) => !col.field)) {
+              console.error(
+                '[useVxeGrid] 更新列失败，列配置项必须包含field属性'
+              );
               return;
             }
-            cols.forEach(col => {
-              const column = this.columnsConfig.find(item => item.field === col.field);
+            cols.forEach((col) => {
+              const column = this.columnsConfig.find(
+                (item) => item.field === col.field
+              );
               if (column) mergeWithArrayOverride(column, col);
-              else console.error(`[useVxeGrid] 更新列失败，原配置项未找到${col.field}列`);
+              else
+                console.error(
+                  `[useVxeGrid] 更新列失败，原配置项未找到${col.field}列`
+                );
             });
             this.columnsConfig = [...this.columnsConfig];
           } else {
-            throw new Error('[useVxeGrid] `updateColumns`方法参数必须为 columnsHelper实例');
+            throw new Error(
+              '[useVxeGrid] `updateColumns`方法参数必须为 columnsHelper实例'
+            );
           }
           return this.$nextTick();
         },
