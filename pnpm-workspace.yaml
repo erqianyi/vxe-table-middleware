@@ -6,9 +6,10 @@ packages:
 catalog:
   '@babel/preset-env': ^7.26.9
   '@commitlint/cli': ^19.8.0
+  '@commitlint/config-conventional': ^19.8.0
   '@rollup/plugin-json': ^5.0.2
   '@rollup/plugin-node-resolve': ^13.3.0
-  '@rollup/plugin-strip': ^2.1.0,
+  '@rollup/plugin-strip': ^2.1.0
   commitizen: ^4.3.1
   cz-git: ^1.11.1
   eslint: ^7.32.0

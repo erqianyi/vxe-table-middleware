@@ -53,6 +53,7 @@
   "devDependencies": {
     "@babel/preset-env": "catalog:",
     "@commitlint/cli": "catalog:",
+    "@commitlint/config-conventional": "catalog:",
     "@rollup/plugin-json": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-strip": "catalog:",
