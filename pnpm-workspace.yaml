@@ -5,13 +5,16 @@ packages:
   - examples/*
 catalog:
   '@babel/preset-env': ^7.26.9
+  '@commitlint/cli': ^19.8.0
   '@rollup/plugin-json': ^5.0.2
   '@rollup/plugin-node-resolve': ^13.3.0
-  '@rollup/plugin-strip': ^2.1.0
+  '@rollup/plugin-strip': ^2.1.0,
+  commitizen: ^4.3.1
+  cz-git: ^1.11.1
   eslint: ^7.32.0
   eslint-config-prettier: ^7.2.0
   eslint-plugin-prettier: ^3.4.1
-  eslint-plugin-vue": ^7.20.0
+  eslint-plugin-vue: ^7.20.0
   husky: ^9.1.7
   lint-staged: ^15.5.0
   prettier: ^2.8.8

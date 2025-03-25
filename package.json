@@ -10,6 +10,7 @@
     "publish": "npm publish",
     "publish:beta": "npm publish --tag=beta",
     "prepare": "husky || true",
+    "commit": "git-cz",
     "lint": "eslint src"
   },
   "repository": {
@@ -51,9 +52,12 @@
   },
   "devDependencies": {
     "@babel/preset-env": "catalog:",
+    "@commitlint/cli": "catalog:",
     "@rollup/plugin-json": "catalog:",
     "@rollup/plugin-node-resolve": "catalog:",
     "@rollup/plugin-strip": "catalog:",
+    "commitizen": "catalog:",
+    "cz-git": "catalog:",
     "eslint": "catalog:",
     "eslint-config-prettier": "catalog:",
     "eslint-plugin-prettier": "catalog:",
@@ -73,5 +77,11 @@
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git",
+      "useEmoji": true
+    }
   }
 }
