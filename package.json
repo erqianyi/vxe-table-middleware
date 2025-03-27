@@ -11,7 +11,9 @@
     "publish:beta": "npm publish --tag=beta",
     "prepare": "husky || true",
     "commit": "git-cz",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "examples:dev": "pnpm -C examples serve",
+    "examples:build": "pnpm -C examples build"
   },
   "repository": {
     "type": "git",
@@ -74,7 +76,7 @@
     "rollup-plugin-vue": "catalog:"
   },
   "lint-staged": {
-    "*.js": [
+    "src/**/*.js": [
       "eslint --fix",
       "prettier --write"
     ]

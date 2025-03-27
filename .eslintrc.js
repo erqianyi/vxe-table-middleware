@@ -10,8 +10,12 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
     ecmaVersion: 12,
     sourceType: 'module',
+    // parser: '@babel/eslint-parser',
   },
   plugins: ['vue', 'prettier'],
   rules: {
