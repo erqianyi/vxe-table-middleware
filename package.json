@@ -12,6 +12,8 @@
     "prepare": "husky || true",
     "commit": "git-cz",
     "lint": "eslint src",
+    "docs:dev": "pnpm -C docs docs:dev",
+    "docs:build": "pnpm -C docs docs:build",
     "examples:dev": "pnpm -C examples serve",
     "examples:build": "pnpm -C examples build"
   },
