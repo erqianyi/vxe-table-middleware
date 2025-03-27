@@ -3,6 +3,7 @@
  */
 
 import { isFunction } from 'xe-utils';
+
 export class ExtendAndProxyAPI {
   constructor(VxeGridWrapIns) {
     this.gridComp = VxeGridWrapIns;
@@ -36,13 +37,12 @@ export class ExtendAndProxyAPI {
   updateColumns(columns) {
     return this.gridComp.updateColumns(columns);
   }
-  // 代理所有访问的方法
-  // [fnName](...args) {
-  //   return this._getFn(fnName, ...args);
-  // }
 
-  // async loadData(data) {
-  //   await this.gridComp.$nextTick();
-  //   return this._getFn('loadData', data);
-  // }
+  // 实现动态方法，代理所有访问的方法
+  get(target, prop) {
+    if (typeof prop === 'string' && !(prop in this)) {
+      return (...args) => this._getFn(prop, ...args);
+    }
+    return this[prop];
+  }
 }
