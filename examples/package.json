@@ -11,8 +11,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@2100/vxe-table-middleware": "file:../",
     "core-js": "catalog:",
-    "vue": "catalog:"
+    "vue": "catalog:",
+    "vue-router": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "catalog:",

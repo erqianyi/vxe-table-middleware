@@ -90,9 +90,15 @@ catalogs:
     vue:
       specifier: ^2.6.14
       version: 2.7.16
+    vue-router:
+      specifier: ^3.5.3
+      version: 3.6.5
     vue-template-compiler:
       specifier: ^2.6.14
       version: 2.7.16
+    vuepress:
+      specifier: 1.9.10
+      version: 1.9.10
     vxe-pc-ui:
       specifier: ^3.3.97
       version: 3.5.1
@@ -187,17 +193,23 @@ importers:
   docs:
     devDependencies:
       vuepress:
-        specifier: '1'
+        specifier: 'catalog:'
         version: 1.9.10(@vue/compiler-sfc@3.5.13)(hogan.js@3.0.2)(lodash@4.17.21)(prettier@2.8.8)(pug@3.0.3)
 
   examples:
     dependencies:
+      '@2100/vxe-table-middleware':
+        specifier: file:../
+        version: file:(vue@2.7.16)(vxe-pc-ui@3.5.1(vue@2.7.16))(vxe-table@3.14.1(vue@2.7.16))(xe-utils@3.7.4)
       core-js:
         specifier: 'catalog:'
         version: 3.41.0
       vue:
         specifier: 'catalog:'
         version: 2.7.16
+      vue-router:
+        specifier: 'catalog:'
+        version: 3.6.5(vue@2.7.16)
     devDependencies:
       '@babel/core':
         specifier: 'catalog:'
@@ -225,6 +237,15 @@ importers:
         version: 2.7.16
 
 packages:
+
+  '@2100/vxe-table-middleware@file:':
+    resolution: {directory: '', type: directory}
+    engines: {node: '>=20', pnpm: '>=10'}
+    peerDependencies:
+      vue: 'catalog:'
+      vxe-pc-ui: 'catalog:'
+      vxe-table: 'catalog:'
+      xe-utils: 'catalog:'
 
   '@achrinza/node-ipc@9.2.9':
     resolution: {integrity: sha512-7s0VcTwiK/0tNOVdSX9FWMeFdOEcsAOz9HesBldXxFMaGvIak7KC2z9tV9EgsQXn6KUsWsfIkViMNuIo0GoZDQ==}
@@ -7561,6 +7582,13 @@ packages:
     resolution: {integrity: sha512-C1x6lfvBICFTQIMgbt3JqMOno3VOtkWat/xEakLTOurskYIHPmzJrzd1e8BnmtdDVJlGuk5D+FxyCA8MPmkIyA==}
 
 snapshots:
+
+  '@2100/vxe-table-middleware@file:(vue@2.7.16)(vxe-pc-ui@3.5.1(vue@2.7.16))(vxe-table@3.14.1(vue@2.7.16))(xe-utils@3.7.4)':
+    dependencies:
+      vue: 2.7.16
+      vxe-pc-ui: 3.5.1(vue@2.7.16)
+      vxe-table: 3.14.1(vue@2.7.16)
+      xe-utils: 3.7.4
 
   '@achrinza/node-ipc@9.2.9':
     dependencies:
