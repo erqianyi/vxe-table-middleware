@@ -20,13 +20,7 @@
             src="~@/assets/svg/github.svg"
             alt="github"
             class="github-icon"
-            @click="
-              () =>
-                window.open(
-                  'https://github.com/erqianyi/vxe-table-middleware',
-                  '_blank'
-                )
-            "
+            @click="handleGithub"
           />
         </div>
       </div>
@@ -73,6 +67,11 @@ export default {
   computed: {
     routes() {
       return constantRoutes[0].children || [];
+    },
+  },
+  methods: {
+    handleGithub() {
+      window.open('https://github.com/erqianyi/vxe-table-middleware', '_blank');
     },
   },
 };
