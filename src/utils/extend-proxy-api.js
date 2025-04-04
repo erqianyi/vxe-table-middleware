@@ -3,22 +3,35 @@
  */
 
 import { isFunction } from 'xe-utils';
+import { VxeGrid } from 'vxe-table/es/grid';
 
-export class ExtendAndProxyAPI {
+const gridMethods = Object.keys(VxeGrid.methods) || [];
+
+class GridProxyAPI {
   constructor(VxeGridWrapIns) {
-    this.gridComp = VxeGridWrapIns;
+    this.VxeGridWrapIns = VxeGridWrapIns;
+    gridMethods.forEach((method) => {
+      this[method] = (...args) => this._getFn(method, ...args);
+    });
   }
 
   _getFn(fnName, ...args) {
-    if (!this.gridComp.$children[0]) {
+    if (!this.VxeGridWrapIns.$children[0]) {
       throw new Error('[useVxeGrid] Grid尚未准备完成！尝试添加 $nextTick');
     }
-    const fn = this.gridComp.$children[0][fnName];
+    const fn = this.VxeGridWrapIns.$children[0][fnName];
     if (fn && isFunction(fn)) {
       return fn(...args);
     } else {
       throw new Error(`[useVxeGrid] gridApi.${fnName} is not a function`);
     }
+  }
+}
+
+export class ExtendAndProxyAPI extends GridProxyAPI {
+  constructor(VxeGridWrapIns) {
+    super(VxeGridWrapIns);
+    this.gridComp = VxeGridWrapIns;
   }
 
   /**
@@ -36,13 +49,5 @@ export class ExtendAndProxyAPI {
    */
   updateColumns(columns) {
     return this.gridComp.updateColumns(columns);
-  }
-
-  // 实现动态方法，代理所有访问的方法
-  get(target, prop) {
-    if (typeof prop === 'string' && !(prop in this)) {
-      return (...args) => this._getFn(prop, ...args);
-    }
-    return this[prop];
   }
 }
