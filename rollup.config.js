@@ -13,7 +13,7 @@ const banner = `/*!
 * ${description}
 * (c) ${new Date().getFullYear()} ${author}
 * Released under the ${license} License.
-*/`
+*/`;
 
 const formatMap = {
   esm: {
@@ -25,9 +25,9 @@ const formatMap = {
     file: 'dist/lib/index.js',
     format: 'cjs',
     banner,
-  }
-}
-const createConfig = output => {
+  },
+};
+const createConfig = (output) => {
   return {
     input: 'src/index.js',
     output,
@@ -41,10 +41,10 @@ const createConfig = output => {
             '@babel/preset-env',
             {
               targets: {
-                browsers: ['> 1%', 'last 2 versions', 'ie >= 11']
-              }
-            }
-          ]
+                browsers: ['> 1%', 'last 2 versions', 'ie >= 11'],
+              },
+            },
+          ],
         ],
       }),
       vue(),
@@ -56,7 +56,7 @@ const createConfig = output => {
       json(),
     ],
     external: ['vue', 'xe-utils'],
-  }
-}
-const config = Object.values(formatMap).map(output => createConfig(output))
-module.exports = config
+  };
+};
+const config = Object.values(formatMap).map((output) => createConfig(output));
+module.exports = config;
