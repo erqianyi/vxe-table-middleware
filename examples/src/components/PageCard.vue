@@ -1,5 +1,5 @@
 <template>
-  <div class="page-card flex flex-column">
+  <div class="page-card flex flex-column flex-column-fluid">
     <div class="page-card-header flex align-items-center">
       <slot name="header">
         <div class="page-card-title">{{ title }}</div>
@@ -8,6 +8,7 @@
     <div class="page-card-body">
       <slot></slot>
     </div>
+    <div class="page-card-footer"></div>
   </div>
 </template>
 
