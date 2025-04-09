@@ -2,12 +2,18 @@
  * @Description  : 创建Grid
  */
 
-import { FLAG_NAME, FLAG_ATTR } from '../components/vxe-grid-wrap';
+import { FLAG_NAME, FLAG_ATTR } from '../utils/constant';
 import { GridInstance } from '../utils/grid-instance';
 import { ExtendAndProxyAPI } from '../utils/extend-proxy-api';
 import { isElement, isPlainObject, has } from 'xe-utils';
 // 是否为VxeGridWrap组件实例
 function isVxeGridWrap(obj) {
+  return (
+    obj.$el &&
+    isElement(obj.$el) &&
+    obj.$el.getAttribute(FLAG_ATTR) === FLAG_NAME
+  );
+  /*
   if (obj.$el) {
     return isElement(obj.$el) && obj.$el.getAttribute(FLAG_ATTR) === FLAG_NAME;
   }
@@ -16,6 +22,7 @@ function isVxeGridWrap(obj) {
     isElement(obj) &&
     obj.getAttribute(FLAG_NAME) === FLAG_NAME
   );
+  */
 }
 // 创建Grid的参数是否合法
 function validCreateParams(params) {
@@ -25,33 +32,27 @@ function validCreateParams(params) {
 // 创建Grid实例，单例避免重复创建
 class CreateGridIns {
   constructor({ columns, options, events }) {
-    this.createGridInstance(columns, options, events);
+    this.columns = columns;
+    this.options = options;
+    this.events = events;
   }
 
-  createGridInstance(columns, options, events) {
-    const columnsConfig = columns ? columns._getColumns() : [];
-    const optionsConfig = options ? options._getOptions() : {};
-    const eventsConfig = events ? events._getEvents() : {};
+  createGridInstance() {
+    const columnsConfig = this.columns ? this.columns._getColumns() : [];
+    const optionsConfig = this.options ? this.options._getOptions() : {};
+    const eventsConfig = this.events ? this.events._getEvents() : {};
 
-    if (CreateGridIns.instance) {
-      // TODO 考虑是销毁重建 还是 直接返回
-      CreateGridIns.gridApi = null;
-      CreateGridIns.instance.$destroy();
-      CreateGridIns.instance = null;
-    } else {
-      const insConstructor = new GridInstance({
-        columns: columnsConfig,
-        options: optionsConfig,
-        events: eventsConfig,
-      });
-      const ins = insConstructor.create();
-      CreateGridIns.instance = ins;
-      CreateGridIns.gridApi = new ExtendAndProxyAPI(ins);
-    }
+    // TODO 考虑是否重复创建
+    const insConstructor = new GridInstance({
+      columns: columnsConfig,
+      options: optionsConfig,
+      events: eventsConfig,
+    });
+    const instance = insConstructor.create();
+    const gridApi = new ExtendAndProxyAPI(instance);
+    return { instance, gridApi };
   }
 }
-CreateGridIns.instance = null;
-CreateGridIns.gridApi = null;
 
 /**
  * 获取表格实例和表格api
@@ -62,12 +63,16 @@ function useVxeGrid(params) {
   if (!params) throw new Error('[useVxeGrid] params is required');
   if (isVxeGridWrap(params)) {
     // 返回api
-    if (CreateGridIns.gridApi) return CreateGridIns.gridApi;
-    else throw new Error('[useVxeGrid] Grid实例尚未创建');
+    if (params.$children && params.$children[0]) {
+      return new ExtendAndProxyAPI(params.$children[0]);
+    } else {
+      throw new Error('[useVxeGrid] Grid实例尚未创建');
+    }
   }
   if (validCreateParams(params)) {
-    new CreateGridIns(params);
-    return [CreateGridIns.instance, CreateGridIns.gridApi]; // 返回实例和api
+    const gridInstance = new CreateGridIns(params);
+    const { instance, gridApi } = gridInstance.createGridInstance(); // 返回实例和api
+    return [instance, gridApi];
   }
 }
 

@@ -25,7 +25,7 @@ export interface VxeGridWrapApi extends VxeGridMethods {
 type InstanceAndApi = [instance: GridInstance, gridApi: VxeGridWrapApi];
 
 type CreateOpinions = {
-  columns?: ColumnsHelperIns;
+  columns: ColumnsHelperIns;
   options?: OptionsHelperIns;
   events?: EventsHelperIns;
 };
