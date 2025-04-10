@@ -3,7 +3,10 @@
  */
 
 import Vue from 'vue';
+import { isFunction } from 'xe-utils';
 import { mergeWithArrayOverride } from './merge-with-array-override';
+
+const VXE_GRID_COMPONENT_REF = '__VXE_GRID_REF__';
 export class GridInstance {
   constructor({ columns, options, events }) {
     this.columns = columns;
@@ -15,7 +18,7 @@ export class GridInstance {
     const options = this.options;
     const columns = this.columns;
     const events = this.events;
-    const Grid = Vue.extend({
+    const GridConstructor = Vue.extend({
       data() {
         return {
           optionsConfig: options,
@@ -81,11 +84,28 @@ export class GridInstance {
           }
           return this.$nextTick();
         },
+        // 调用VxeGrid组件的api
+        _callGridAPI(apiName, ...args) {
+          const grid = this.$refs[VXE_GRID_COMPONENT_REF];
+          if (grid) {
+            const fn = grid[apiName];
+            if (fn && isFunction(fn)) {
+              return fn(...args);
+            } else {
+              throw new Error(`[useVxeGrid] ${apiName} is not a function`);
+            }
+          } else {
+            throw new Error(
+              '[useVxeGrid] Grid尚未准备完成！尝试添加 $nextTick'
+            );
+          }
+        },
       },
       render(h) {
         const { gridProps, $parent = {} } = this;
         const hasEventConfig = events && Object.keys(events).length;
         return h('vxe-grid', {
+          ref: VXE_GRID_COMPONENT_REF,
           props: { ...gridProps },
           scopedSlots: { ...($parent.$scopedSlots || {}) },
           // 工具函数定义的事件 权重 高于 标签上定义的事件
@@ -93,6 +113,6 @@ export class GridInstance {
         });
       },
     });
-    return new Grid();
+    return new GridConstructor();
   }
 }

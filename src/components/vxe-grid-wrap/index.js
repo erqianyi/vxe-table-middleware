@@ -10,8 +10,11 @@ const VxeGridWrap = {
      */
     instance: [Object],
   },
+  beforeDestroy() {
+    this.instance && this.instance.$destroy();
+  },
   render(h) {
-    const { instance } = this;
+    const { instance, _e } = this;
     // TODO 这里需要判断实例是否为create工具创建，考虑创建时添加特定属性
     if (instance) instance.$parent = this; // 关联父级组件
     return h(
@@ -22,7 +25,7 @@ const VxeGridWrap = {
       },
       [
         h('div', { ref: 'rootGrid' }, [
-          instance && instance.$mount(this.$refs.rootGrid),
+          instance ? instance.$mount(this.$refs.rootGrid) : _e(),
         ]),
       ]
     );
