@@ -127,7 +127,14 @@ class OptionsHelperClass {
    * @returns this
    */
   addClassName(type, className) {
-    const types = ['row', 'cell', 'header-row', 'header-cell', 'footer-row', 'footer-cell'];
+    const types = [
+      'row',
+      'cell',
+      'header-row',
+      'header-cell',
+      'footer-row',
+      'footer-cell',
+    ];
     if (!type || !types.includes(type)) {
       throw new Error(`addClassName 'type' must be one of ${types}`);
     }
@@ -273,6 +280,168 @@ class OptionsHelperClass {
    */
   filterConfig(filterConfig) {
     this._options['filterConfig'] = { ...filterConfig };
+    return this;
+  }
+  /**
+   * 导出配置项
+   * @param {object} exportConfig 配置项，继承全局配置
+   * @returns this
+   */
+  exportConfig(exportConfig) {
+    this._options['exportConfig'] = { ...exportConfig };
+    return this;
+  }
+  /**
+   * 导入配置项
+   * @param {object} importConfig 配置项，继承全局配置
+   * @returns this
+   */
+  importConfig(importConfig) {
+    this._options['importConfig'] = { ...importConfig };
+    return this;
+  }
+  /**
+   * 打印配置项
+   * @param {object} printConfig 配置项，继承全局配置
+   * @returns this
+   */
+  printConfig(printConfig) {
+    this._options['printConfig'] = { ...printConfig };
+    return this;
+  }
+  /**
+   * 单选配置项
+   * @param {object} radioConfig 配置项，继承全局配置
+   * @returns this
+   */
+  radioConfig(radioConfig) {
+    this._options['radioConfig'] = { ...radioConfig };
+    return this;
+  }
+  /**
+   * 复选配置项
+   * @param {object} checkboxConfig 配置项，继承全局配置
+   * @returns this
+   */
+  checkboxConfig(checkboxConfig) {
+    this._options['checkboxConfig'] = { ...checkboxConfig };
+    return this;
+  }
+  /**
+   * tooltip 配置项
+   * @param {object} tooltipConfig 配置项，继承全局配置
+   * @returns this
+   */
+  tooltipConfig(tooltipConfig) {
+    this._options['tooltipConfig'] = { ...tooltipConfig };
+    return this;
+  }
+  /**
+   * 展开行配置项（不支持虚拟滚动）
+   * @param {object} expandConfig 配置项，继承全局配置
+   * @returns this
+   */
+  expandConfig(expandConfig) {
+    this._options['expandConfig'] = { ...expandConfig };
+    return this;
+  }
+  /**
+   * 树形结构配置项
+   * @param {object} treeConfig 配置项，继承全局配置
+   * @returns this
+   */
+  treeConfig(treeConfig) {
+    this._options['treeConfig'] = { ...treeConfig };
+    return this;
+  }
+  /**
+   * 菜单配置项
+   * @param {object} menuConfig 配置项，继承全局配置
+   * @returns this
+   */
+  menuConfig(menuConfig) {
+    this._options['menuConfig'] = { ...menuConfig };
+    return this;
+  }
+  /**
+   * 鼠标配置项
+   * @param {object} mouseConfig 配置项，继承全局配置
+   * @returns this
+   */
+  mouseConfig(mouseConfig) {
+    this._options['mouseConfig'] = { ...mouseConfig };
+    return this;
+  }
+  /**
+   * 键盘配置项
+   * @param {object} keyboardConfig 配置项，继承全局配置
+   * @returns this
+   */
+  keyboardConfig(keyboardConfig) {
+    this._options['keyboardConfig'] = { ...keyboardConfig };
+    return this;
+  }
+  /**
+   * 可编辑配置项
+   * @param {object} editConfig 配置项，继承全局配置
+   * @returns this
+   */
+  editConfig(editConfig) {
+    this._options['editConfig'] = { ...editConfig };
+    return this;
+  }
+  /**
+   * 验证配置项
+   * @param {object} validConfig 配置项，继承全局配置
+   * @returns this
+   */
+  validConfig(validConfig) {
+    this._options['validConfig'] = { ...validConfig };
+    return this;
+  }
+  /**
+   * 校验规则配置项
+   * @param {object} editRules 配置项，继承全局配置
+   * @returns this
+   */
+  editRules(editRules) {
+    this._options['editRules'] = { ...editRules };
+    return this;
+  }
+  /**
+   * 空数据时显示的内容
+   * @param {object} emptyText 配置项，继承全局配置
+   * @returns this
+   */
+  emptyText(emptyText) {
+    this._options['emptyText'] = emptyText;
+    return this;
+  }
+  /**
+   * 空数据时显示的内容
+   * @param {object} emptyRender 配置项，继承全局配置
+   * @returns this
+   */
+  emptyRender(emptyRender) {
+    this._options['emptyRender'] = emptyRender;
+    return this;
+  }
+  /**
+   * 加载配置项
+   * @param {object} loadingConfig 配置项，继承全局配置
+   * @returns this
+   */
+  loadingConfig(loadingConfig) {
+    this._options['loadingConfig'] = { ...loadingConfig };
+    return this;
+  }
+  /**
+   * 自定义配置项
+   * @param {object} customConfig 配置项，继承全局配置
+   * @returns this
+   */
+  customConfig(customConfig) {
+    this._options['customConfig'] = { ...customConfig };
     return this;
   }
 }
