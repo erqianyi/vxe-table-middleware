@@ -7,7 +7,7 @@ import { isFunction } from 'xe-utils';
 import { mergeWithArrayOverride } from './merge-with-array-override';
 
 const VXE_GRID_COMPONENT_REF = '__VXE_GRID_REF__';
-export class GridInstance {
+export class GridConstructor {
   constructor({ columns, options, events }) {
     this.columns = columns;
     this.options = options;
@@ -18,7 +18,7 @@ export class GridInstance {
     const options = this.options;
     const columns = this.columns;
     const events = this.events;
-    const GridConstructor = Vue.extend({
+    const Grid = Vue.extend({
       data() {
         return {
           optionsConfig: options,
@@ -85,14 +85,14 @@ export class GridInstance {
           return this.$nextTick();
         },
         // 调用VxeGrid组件的api
-        _callGridAPI(apiName, ...args) {
+        _callGridAPI(fnName) {
           const grid = this.$refs[VXE_GRID_COMPONENT_REF];
           if (grid) {
-            const fn = grid[apiName];
+            const fn = grid[fnName];
             if (fn && isFunction(fn)) {
-              return fn(...args);
+              return fn;
             } else {
-              throw new Error(`[useVxeGrid] ${apiName} is not a function`);
+              throw new Error(`[useVxeGrid] ${fnName} is not a function`);
             }
           } else {
             throw new Error(
@@ -113,6 +113,6 @@ export class GridInstance {
         });
       },
     });
-    return new GridConstructor();
+    return Grid;
   }
 }
