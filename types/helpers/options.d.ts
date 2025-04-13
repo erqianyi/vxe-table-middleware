@@ -1,6 +1,17 @@
 import type { VxeTablePropTypes } from 'vxe-table';
-type OptionsHeight = VxeTablePropTypes.Height | { minHeight?: VxeTablePropTypes.MinHeight; maxHeight?: VxeTablePropTypes.MaxHeight };
-type ClassNameTypes = 'row' | 'cell' | 'header-row' | 'header-cell' | 'footer-row' | 'footer-cell';
+type OptionsHeight =
+  | VxeTablePropTypes.Height
+  | {
+      minHeight?: VxeTablePropTypes.MinHeight;
+      maxHeight?: VxeTablePropTypes.MaxHeight;
+    };
+type ClassNameTypes =
+  | 'row'
+  | 'cell'
+  | 'header-row'
+  | 'header-cell'
+  | 'footer-row'
+  | 'footer-cell';
 type ClassName<T> = T extends 'row'
   ? VxeTablePropTypes.RowClassName
   : T extends 'cell'
@@ -78,7 +89,10 @@ export interface OptionsHelperIns {
    */
   align(
     align: VxeTablePropTypes.Align,
-    extra?: { headerAlign?: VxeTablePropTypes.HeaderAlign; footerAlign?: VxeTablePropTypes.FooterAlign },
+    extra?: {
+      headerAlign?: VxeTablePropTypes.HeaderAlign;
+      footerAlign?: VxeTablePropTypes.FooterAlign;
+    }
   ): OptionsHelperIns;
   /**
    * 表格是否显示表头
@@ -92,7 +106,10 @@ export interface OptionsHelperIns {
    * @params {(string | function)} className 类名或返回类名的方法
    * @returns OptionsHelperIns
    */
-  addClassName<T extends ClassNameTypes>(type: T, className: ClassName<T>): OptionsHelperIns;
+  addClassName<T extends ClassNameTypes>(
+    type: T,
+    className: ClassName<T>
+  ): OptionsHelperIns;
   /**
    * 表格是否显示表尾
    * @params {boolean} showFooter 默认false
@@ -116,7 +133,9 @@ export interface OptionsHelperIns {
    * @params {array} mergeFooterItems Array<{ row: number, col: number, rowspan: number, colspan: number }>
    * @returns OptionsHelperIns
    */
-  mergeFooterItems(mergeFooterItems: VxeTablePropTypes.MergeFooterItems): OptionsHelperIns;
+  mergeFooterItems(
+    mergeFooterItems: VxeTablePropTypes.MergeFooterItems
+  ): OptionsHelperIns;
   /**
    * 设置所有内容过长时显示为省略号（如果是固定列建议设置该值，提升渲染速度）
    * @params {(boolean|string)} showOverflow: boolean | 'ellipsis' | 'title' | 'tooltip'
@@ -125,7 +144,10 @@ export interface OptionsHelperIns {
    */
   showOverflow(
     showOverflow: VxeTablePropTypes.ShowOverflow,
-    extra?: { header?: VxeTablePropTypes.ShowHeaderOverflow; footer?: VxeTablePropTypes.ShowFooterOverflow },
+    extra?: {
+      header?: VxeTablePropTypes.ShowHeaderOverflow;
+      footer?: VxeTablePropTypes.ShowFooterOverflow;
+    }
   ): OptionsHelperIns;
   /**
    * 保持原始值的状态，被某些功能所依赖，比如编辑状态、还原数据等（开启后影响性能，具体取决于数据量）
@@ -147,7 +169,10 @@ export interface OptionsHelperIns {
    */
   cellConfig(
     cellConfig: VxeTablePropTypes.CellConfig,
-    extra?: { header?: VxeTablePropTypes.HeaderCellConfig; footer?: VxeTablePropTypes.FooterCellConfig },
+    extra?: {
+      header?: VxeTablePropTypes.HeaderCellConfig;
+      footer?: VxeTablePropTypes.FooterCellConfig;
+    }
   ): OptionsHelperIns;
   /**
    * 行配置信息
@@ -160,7 +185,9 @@ export interface OptionsHelperIns {
    * @params {object} resizableConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
-  resizableConfig(resizableConfig: VxeTablePropTypes.ResizableConfig): OptionsHelperIns;
+  resizableConfig(
+    resizableConfig: VxeTablePropTypes.ResizableConfig
+  ): OptionsHelperIns;
   /**
    * 序号配置项
    * @params {object} seqConfig 配置项，继承全局配置
@@ -178,19 +205,139 @@ export interface OptionsHelperIns {
    * @params {object} rowDragConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
-  rowDragConfig(rowDragConfig: VxeTablePropTypes.RowDragConfig): OptionsHelperIns;
+  rowDragConfig(
+    rowDragConfig: VxeTablePropTypes.RowDragConfig
+  ): OptionsHelperIns;
   /**
    * 列拖拽配置项
    * @params {object} columnDragConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
-  columnDragConfig(columnDragConfig: VxeTablePropTypes.ColumnDragConfig): OptionsHelperIns;
+  columnDragConfig(
+    columnDragConfig: VxeTablePropTypes.ColumnDragConfig
+  ): OptionsHelperIns;
   /**
    * 筛选配置项
    * @params {object} filterConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
   filterConfig(filterConfig: VxeTablePropTypes.FilterConfig): OptionsHelperIns;
+  /**
+   * 导出配置项
+   * @params {object} exportConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  exportConfig(exportConfig: VxeTablePropTypes.ExportConfig): OptionsHelperIns;
+  /**
+   * 导入配置项
+   * @params {object} importConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  importConfig(importConfig: VxeTablePropTypes.ImportConfig): OptionsHelperIns;
+  /**
+   * 打印配置项
+   * @params {object} printConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  printConfig(printConfig: VxeTablePropTypes.PrintConfig): OptionsHelperIns;
+  /**
+   * 单选配置项
+   * @params {object} radioConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  radioConfig(radioConfig: VxeTablePropTypes.RadioConfig): OptionsHelperIns;
+  /**
+   * 复选配置项
+   * @params {object} checkboxConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  checkboxConfig(
+    checkboxConfig: VxeTablePropTypes.CheckboxConfig
+  ): OptionsHelperIns;
+  /**
+   * 提示配置项
+   * @params {object} tooltipConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  tooltipConfig(
+    tooltipConfig: VxeTablePropTypes.TooltipConfig
+  ): OptionsHelperIns;
+  /**
+   * 展开行配置项（不支持虚拟滚动）
+   * @params {object} expandConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  expandConfig(expandConfig: VxeTablePropTypes.ExpandConfig): OptionsHelperIns;
+  /**
+   * 树形结构配置项
+   * @params {object} treeConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  treeConfig(treeConfig: VxeTablePropTypes.TreeConfig): OptionsHelperIns;
+  /**
+   * 菜单配置项
+   * @params {object} menuConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  menuConfig(menuConfig: VxeTablePropTypes.MenuConfig): OptionsHelperIns;
+  /**
+   * 鼠标配置项
+   * @params {object} mouseConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  mouseConfig(mouseConfig: VxeTablePropTypes.MouseConfig): OptionsHelperIns;
+  /**
+   * 键盘配置项
+   * @params {object} keyboardConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  keyboardConfig(
+    keyboardConfig: VxeTablePropTypes.KeyboardConfig
+  ): OptionsHelperIns;
+  /**
+   * 可编辑配置项
+   * @params {object} editConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  editConfig(editConfig: VxeTablePropTypes.EditConfig): OptionsHelperIns;
+  /**
+   * 验证配置项
+   * @params {object} validConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  validConfig(validConfig: VxeTablePropTypes.ValidConfig): OptionsHelperIns;
+  /**
+   * 校验规则配置项
+   * @params {object} editRulesConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  editRules(editRules: VxeTablePropTypes.EditRules): OptionsHelperIns;
+  /**
+   * 空数据时显示的内容
+   * @params {string} emptyText 空数据时显示的内容
+   * @returns OptionsHelperIns
+   */
+  emptyText(emptyText: VxeTablePropTypes.EmptyText): OptionsHelperIns;
+  /**
+   * 空数据时显示的内容
+   * @params {object} emptyRender 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  emptyRender(emptyRender: VxeTablePropTypes.EmptyRender): OptionsHelperIns;
+  /**
+   * 加载配置项
+   * @params {object} loadingConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  loadingConfig(
+    loadingConfig: VxeTablePropTypes.LoadingConfig
+  ): OptionsHelperIns;
+  /**
+   * 自定义配置项
+   * @params {object} customConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  customConfig(customConfig: VxeTablePropTypes.CustomConfig): OptionsHelperIns;
 }
 
 // 工具函数

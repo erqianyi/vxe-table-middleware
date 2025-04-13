@@ -1,11 +1,11 @@
 import Vue from 'vue';
+import type { VueConstructor } from 'vue';
 import type { VxeGridMethods } from 'vxe-table';
 import type { OptionsHelperIns } from './options';
 import type { ColumnsHelperIns } from './columns';
 import type { EventsHelperIns } from './events';
 
-export class GridComponent extends Vue {}
-type GridInstance = typeof GridComponent;
+export class VxeGridWrapComponent extends Vue {}
 
 export interface VxeGridWrapApi extends VxeGridMethods {
   /**
@@ -22,14 +22,14 @@ export interface VxeGridWrapApi extends VxeGridMethods {
   updateColumns(columns: ColumnsHelperIns): Promise<any>;
 }
 
-type InstanceAndApi = [instance: GridInstance, gridApi: VxeGridWrapApi];
+type GridConstructor = VueConstructor;
 
 type CreateOpinions = {
   columns: ColumnsHelperIns;
   options?: OptionsHelperIns;
   events?: EventsHelperIns;
 };
-type GridElement = HTMLElement | typeof GridComponent;
+type GridElement = HTMLElement | typeof VxeGridWrapComponent;
 
 /** 函数重载 */
 /**
@@ -37,7 +37,7 @@ type GridElement = HTMLElement | typeof GridComponent;
  * @params {CreateOpinions} params 配置项
  * @returns [instance: GridInstance, gridApi: VxeGridWrapApi] 获取实例与gridApi
  */
-export function useVxeGrid(params: CreateOpinions): InstanceAndApi;
+export function useVxeGrid(params: CreateOpinions): GridConstructor;
 /**
  * 对已经创建过的表格只获取api工具
  * @params {GridElement} params 通过$refs获取的表格实例
