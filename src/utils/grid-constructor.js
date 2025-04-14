@@ -5,6 +5,7 @@
 import Vue from 'vue';
 import { isFunction } from 'xe-utils';
 import { mergeWithArrayOverride } from './merge-with-array-override';
+import { FLAG_OPTIONS_ATTR, FLAG_NAME } from './constant';
 
 const VXE_GRID_COMPONENT_REF = '__VXE_GRID_REF__';
 export class GridConstructor {
@@ -113,6 +114,7 @@ export class GridConstructor {
         });
       },
     });
+    Grid[FLAG_OPTIONS_ATTR] = FLAG_NAME; // 添加标识，用于判断是否为create工具创建
     return Grid;
   }
 }

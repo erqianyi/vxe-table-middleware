@@ -13,6 +13,17 @@ class OptionsHelperClass {
     return this._options || {};
   }
   /**
+   * 合并其他由选项配置工具函数实例创建的配置项
+   * @param {object} optionsHelperIns 选项配置工具函数实例
+   * @returns this
+   */
+  merge(optionsHelperIns) {
+    if (optionsHelperIns && optionsHelperIns instanceof OptionsHelperClass) {
+      this._options = { ...this._options, ...optionsHelperIns._getOptions() };
+    }
+    return this;
+  }
+  /**
    * 唯一标识（被某些特定的功能所依赖）
    * @param {string} id 标识值
    * @returns this
@@ -442,6 +453,113 @@ class OptionsHelperClass {
    */
   customConfig(customConfig) {
     this._options['customConfig'] = { ...customConfig };
+    return this;
+  }
+  /**
+   * 横向虚拟滚动配置项
+   * @param {object} virtualXConfig 配置项，继承全局配置
+   * @returns this
+   */
+  virtualXConfig(virtualXConfig) {
+    this._options['virtualXConfig'] = { ...virtualXConfig };
+    return this;
+  }
+  /**
+   * 纵向虚拟滚动配置项
+   * @param {object} virtualYConfig 配置项，继承全局配置
+   * @returns this
+   */
+  virtualYConfig(virtualYConfig) {
+    this._options['virtualYConfig'] = { ...virtualYConfig };
+    return this;
+  }
+  /**
+   * 滚动条配置项
+   * @param {object} scrollbarConfig 配置项，继承全局配置
+   * @returns this
+   */
+  scrollbarConfig(scrollbarConfig) {
+    this._options['scrollbarConfig'] = { ...scrollbarConfig };
+    return this;
+  }
+  /**
+   * 自定义参数（可以用来存放一些自定义的数据）
+   * @param {any} params
+   * @returns this
+   */
+  params(params) {
+    this._options['params'] = params;
+    return this;
+  }
+  /**
+   * 表单配置项
+   * @param {object} formConfig 配置项，继承全局配置
+   * @returns this
+   */
+  formConfig(formConfig) {
+    this._options['formConfig'] = { ...formConfig };
+    return this;
+  }
+  /**
+   * 工具栏配置项
+   * @param {object} toolbarConfig 配置项，继承全局配置
+   * @returns this
+   */
+  toolbarConfig(toolbarConfig) {
+    this._options['toolbarConfig'] = { ...toolbarConfig };
+    return this;
+  }
+  /**
+   * 分页配置项
+   * @param {object} pagerConfig 配置项，继承全局配置
+   * @returns this
+   */
+  pagerConfig(pagerConfig) {
+    this._options['pagerConfig'] = { ...pagerConfig };
+    return this;
+  }
+  /**
+   * 缩放配置项
+   * @param {object} zoomConfig 配置项，继承全局配置
+   * @returns this
+   */
+  zoomConfig(zoomConfig) {
+    this._options['zoomConfig'] = { ...zoomConfig };
+    return this;
+  }
+  /**
+   * 自定义布局
+   * @param {object} layouts 配置项，继承全局配置
+   * @returns this
+   */
+  layouts(layouts) {
+    this._options['layouts'] = { ...layouts };
+    return this;
+  }
+  /**
+   * 代理配置项
+   * @param {object} proxyConfig 配置项，继承全局配置
+   * @returns this
+   */
+  proxyConfig(proxyConfig) {
+    this._options['proxyConfig'] = {
+      ...(this._options['proxyConfig'] || {}),
+      ...proxyConfig,
+    };
+    return this;
+  }
+  /**
+   * 代理处理函数，同 proxyConfig.ajax 配置项，目的仅为减少配置层级
+   * @param {object} proxyHandlers 配置项
+   * @returns this
+   */
+  proxyHandlers(proxyHandlers) {
+    const { ajax } = this._options['proxyConfig'] || {};
+    Object.assign(ajax || {}, proxyHandlers);
+    this._options['proxyConfig'] = {
+      ...(this._options['proxyConfig'] || {}),
+      ajax,
+    };
     return this;
   }
 }

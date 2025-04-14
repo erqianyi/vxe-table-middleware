@@ -1,4 +1,4 @@
-import { FLAG_NAME, FLAG_ATTR } from '../../utils/constant';
+import { FLAG_NAME, FLAG_ATTR, FLAG_OPTIONS_ATTR } from '../../utils/constant';
 const REF_NAME = '__GRID_CORE_REF__';
 import { gridApiMaps } from '../../helpers/create';
 
@@ -17,14 +17,13 @@ const VxeGridWrap = {
   },
   render(h) {
     const { grid, _e } = this;
-    // TODO 这里需要判断grid是否为create工具创建，考虑创建时添加特定属性
     return h(
       'div',
       {
         ref: REF_NAME,
         attrs: { [FLAG_ATTR]: FLAG_NAME },
       },
-      [grid ? h(grid) : _e()]
+      [grid && grid[FLAG_OPTIONS_ATTR] === FLAG_NAME ? h(grid) : _e()]
     );
   },
 };
