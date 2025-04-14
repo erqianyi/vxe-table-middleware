@@ -1,4 +1,4 @@
-import type { VxeTablePropTypes } from 'vxe-table';
+import type { VxeTablePropTypes, VxeGridPropTypes } from 'vxe-table';
 type OptionsHeight =
   | VxeTablePropTypes.Height
   | {
@@ -27,6 +27,12 @@ type ClassName<T> = T extends 'row'
   : never;
 
 export interface OptionsHelperIns {
+  /**
+   * 合并其他由选项配置工具函数实例创建的配置项
+   * @params {object} optionsHelperIns 选项配置工具函数实例
+   * @returns OptionsHelperIns
+   */
+  merge(optionsHelperIns: OptionsHelperIns): OptionsHelperIns;
   /**
    * 唯一标识（被某些特定的功能所依赖）
    * @params {string} id 标识值
@@ -338,6 +344,82 @@ export interface OptionsHelperIns {
    * @returns OptionsHelperIns
    */
   customConfig(customConfig: VxeTablePropTypes.CustomConfig): OptionsHelperIns;
+  /**
+   * 横向虚拟滚动配置项
+   * @params {object} virtualXConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  virtualXConfig(
+    virtualXConfig: VxeTablePropTypes.VirtualXConfig
+  ): OptionsHelperIns;
+  /**
+   * 纵向虚拟滚动配置项
+   * @params {object} virtualYConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  virtualYConfig(
+    virtualYConfig: VxeTablePropTypes.VirtualYConfig
+  ): OptionsHelperIns;
+  /**
+   * 滚动条配置项
+   * @params {object} scrollbarConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  scrollbarConfig(
+    scrollbarConfig: VxeTablePropTypes.ScrollbarConfig
+  ): OptionsHelperIns;
+  /**
+   * 自定义参数（可以用来存放一些自定义的数据）
+   * @params {any} params
+   * @returns OptionsHelperIns
+   */
+  params(params: any): OptionsHelperIns;
+  /**
+   * 表单配置项
+   * @params {object} formConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  formConfig(formConfig: VxeGridPropTypes.FormConfig): OptionsHelperIns;
+  /**
+   * 工具栏配置项
+   * @params {object} toolbarConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  toolbarConfig(
+    toolbarConfig: VxeGridPropTypes.ToolbarConfig
+  ): OptionsHelperIns;
+  /**
+   * 分页配置项
+   * @params {object} pagerConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  pagerConfig(pagerConfig: VxeGridPropTypes.PagerConfig): OptionsHelperIns;
+  /**
+   * 缩放配置项
+   * @params {object} zoomConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  zoomConfig(zoomConfig: VxeGridPropTypes.ZoomConfig): OptionsHelperIns;
+  /**
+   * 自定义布局
+   * @params {object} layouts 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  layouts(layouts: VxeGridPropTypes.Layouts): OptionsHelperIns;
+  /**
+   * 代理配置项
+   * @params {object} proxyConfig 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  proxyConfig(proxyConfig: VxeGridPropTypes.ProxyConfig): OptionsHelperIns;
+  /**
+   * 代理处理函数，同 proxyConfig.ajax 配置项，目的仅为减少配置层级
+   * @params {object} proxyHandlers 配置项
+   * @returns OptionsHelperIns
+   */
+  proxyHandlers(
+    proxyHandlers: Pick<VxeGridPropTypes.ProxyConfig, 'ajax'>
+  ): OptionsHelperIns;
 }
 
 // 工具函数

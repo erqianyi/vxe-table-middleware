@@ -35,7 +35,7 @@ type GridElement = HTMLElement | typeof VxeGridWrapComponent;
 /**
  * 创建表格
  * @params {CreateOpinions} params 配置项
- * @returns [instance: GridInstance, gridApi: VxeGridWrapApi] 获取实例与gridApi
+ * @returns {GridConstructor} 获取表格构造函数
  */
 export function useVxeGrid(params: CreateOpinions): GridConstructor;
 /**
