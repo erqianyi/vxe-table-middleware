@@ -16,6 +16,7 @@
           >
         </div>
         <div class="flex align-items-center justify-content-center">
+          <a class="app-header-link" href="" target="_blank">查看文档</a>
           <img
             src="~@/assets/svg/github.svg"
             alt="github"

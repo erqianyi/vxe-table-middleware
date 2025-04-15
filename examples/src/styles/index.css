@@ -85,6 +85,12 @@ body {
   font-size: 14px;
   color: #99a1b7;
 }
+.app-header .app-header-link {
+  margin-right: 20px;
+  font-size: 14px;
+  color: #1b84ff;
+  text-decoration: none;
+}
 .app-header .github-icon {
   width: 32px;
   height: 32px;

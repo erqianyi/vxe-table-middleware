@@ -1,29 +1,34 @@
 <template>
   <PageCard title="BaseDemo">
-    <vxe-grid-wrap :instance="ins"></vxe-grid-wrap>
+    <vxe-button status="primary" @click="getSelected">获取选中数据</vxe-button>
+    <vxe-grid-wrap ref="gridRef" :grid="grid">
+      <template #empty>
+        <div class="empty-content">自定义空状态</div>
+      </template>
+    </vxe-grid-wrap>
   </PageCard>
 </template>
 
 <script>
-import VxeGridWrap, {
-  columnsHelper,
-  useVxeGrid,
-} from '@2100/vxe-table-middleware';
+import { columnsHelper, useVxeGrid } from '@2100/vxe-table-middleware';
 export default {
   name: 'BaseDemo',
-  components: { VxeGridWrap },
   data() {
     return {
-      ins: null,
+      grid: null,
     };
   },
   mounted() {
     this.createTable();
   },
   methods: {
+    getSelected() {
+      const gridApi = useVxeGrid(this.$refs.gridRef);
+      console.log(gridApi.getCheckboxRecords());
+    },
     createTable() {
       const columns = columnsHelper();
-      columns.type('checkbox').fixed('left');
+      columns.type('checkbox').fixed('left').width(80).end();
       columns.field('name').title('名称').end();
       columns.field('age').title('年龄').end();
       columns.field('address').title('地址').end();
@@ -32,10 +37,18 @@ export default {
       columns.field('status').title('状态').end();
       columns.field('action').title('操作').end();
 
-      const [instance, gridApi] = useVxeGrid({ columns });
-      this.ins = instance;
+      this.grid = useVxeGrid({ columns });
       this.$nextTick(() => {
-        console.log(gridApi);
+        const gridApi = useVxeGrid(this.$refs.gridRef);
+        gridApi.loadData([
+          {
+            name: '张三',
+            age: 18,
+            address: '北京市海淀区',
+            email: 'zhangsan@163.com',
+            phone: '12345678901',
+          },
+        ]);
       });
     },
   },

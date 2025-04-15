@@ -8,7 +8,6 @@
     <div class="page-card-body">
       <slot></slot>
     </div>
-    <div class="page-card-footer"></div>
   </div>
 </template>
 
