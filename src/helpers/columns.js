@@ -49,6 +49,24 @@ class ColumnsHelperClass {
     return this;
   }
   /**
+   * 列宽度（如果为空则均匀分配剩余宽度，如果全部列固定了，可能会存在宽屏下不会铺满，可以配合 "%" 或者 "min-width" 布局）
+   * @param {(string | number)} width 宽度
+   * @returns this
+   */
+  width(width) {
+    this.column['width'] = width;
+    return this;
+  }
+  /**
+   * 最小列宽度；会自动将剩余空间按比例分配
+   * @param {(string | number)} minWidth 最小宽度
+   * @returns this
+   */
+  minWidth(minWidth) {
+    this.column['minWidth'] = minWidth;
+    return this;
+  }
+  /**
    * 列是否允许拖动列宽调整大小
    * @param {boolean} resizable 是否可调整大小
    * @returns this
