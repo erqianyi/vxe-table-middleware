@@ -12,11 +12,7 @@
 </template>
 
 <script>
-import {
-  optionsHelper,
-  columnsHelper,
-  useVxeGrid,
-} from '@2100/vxe-table-middleware';
+import { optionsHelper, columnsHelper, useVxeGrid } from 'vxe-table-middleware';
 export default {
   name: 'MultipleDemo',
   data() {

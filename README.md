@@ -39,11 +39,11 @@ _待补充..._
 ## 安装
 
 ```bash
-npm install @2100/vxe-table-middleware
+npm install vxe-table-middleware
 # 或者
-yarn add @2100/vxe-table-middleware
+yarn add vxe-table-middleware
 # 或者
-pnpm add @2100/vxe-table-middleware
+pnpm add vxe-table-middleware
 ```
 
 ## 使用
@@ -57,7 +57,7 @@ main.js
 
 ```javascript
 import Vue from 'vue';
-import VxeGridWrap from '@2100/vxe-table-middleware';
+import VxeGridWrap from 'vxe-table-middleware';
 Vue.use(VxeGridWrap);
 // ...
 ```
@@ -69,7 +69,7 @@ Vue.use(VxeGridWrap);
   <vxe-grid-wrap :grid="grid" />
 </template>
 <script>
-  import { columnsHelper, useVxeGrid } from '@2100/vxe-table-middleware';
+  import { columnsHelper, useVxeGrid } from 'vxe-table-middleware';
   export default {
     data() {
       return {
@@ -104,10 +104,7 @@ Vue.use(VxeGridWrap);
   <vxe-grid-wrap :grid="grid" />
 </template>
 <script>
-  import VxeGridWrap, {
-    columnsHelper,
-    useVxeGrid,
-  } from '@2100/vxe-table-middleware';
+  import VxeGridWrap, { columnsHelper, useVxeGrid } from 'vxe-table-middleware';
   export default {
     components: { VxeGridWrap },
     data() {
@@ -141,7 +138,7 @@ Vue.use(VxeGridWrap);
   <vxe-grid-wrap ref="gridRef" :grid="grid" />
 </template>
 <script>
-  import { optionsHelper, columnsHelper, eventsHelper, useVxeGrid } from '@2100/vxe-table-middleware';
+  import { optionsHelper, columnsHelper, eventsHelper, useVxeGrid } from 'vxe-table-middleware';
   export default {
     data() {
       return {

@@ -11,7 +11,7 @@ import './styles/index.css';
 Vue.use(VxeUIAll);
 Vue.use(VxeUITable);
 
-import VxeGridWrap from '@2100/vxe-table-middleware';
+import VxeGridWrap from 'vxe-table-middleware';
 Vue.use(VxeGridWrap);
 
 import PageCard from '@/components/PageCard.vue';

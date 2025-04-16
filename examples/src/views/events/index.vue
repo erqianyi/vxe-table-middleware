@@ -10,7 +10,7 @@ import {
   columnsHelper,
   eventsHelper,
   useVxeGrid,
-} from '@2100/vxe-table-middleware';
+} from 'vxe-table-middleware';
 export default {
   name: 'EventsDemo',
   data() {
