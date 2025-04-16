@@ -16,26 +16,5 @@
     "after:bump": ["node scripts/update-workspace.js", "pnpm run build"],
     "after:git:release": "echo 成功创建版本 v${version} 并打上标签！",
     "after:release": "echo 版本发布完成！现在你可以运行 pnpm run publish 来发布到 npm。"
-  },
-  "plugins": {
-    "@release-it/conventional-changelog": {
-      "infile": "CHANGELOG.md",
-      "header": "# Changelog",
-      "preset": {
-        "name": "conventionalcommits",
-        "types": [
-          { "type": "feat", "section": "Features", "hidden": true },
-          { "type": "fix", "section": "Bug Fixes", "hidden": true },
-          { "type": "docs", "section": "Docs", "hidden": true },
-          { "type": "chore", "hidden": true },
-          { "type": "style", "hidden": true },
-          { "type": "refactor", "hidden": true },
-          { "type": "perf", "hidden": true },
-          { "type": "test", "hidden": true },
-          { "type": "ci", "hidden": true },
-          { "type": "build", "hidden": true }
-        ]
-      }
-    }
   }
 }
