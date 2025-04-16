@@ -7,8 +7,8 @@
   "typings": "types/index.d.ts",
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "publish": "npm publish",
-    "publish:beta": "npm publish --tag=beta",
+    "pub": "pnpm publish",
+    "pub:beta": "pnpm publish --tag=beta",
     "release": "release-it",
     "release:beta": "release-it --preRelease=beta",
     "prepare": "husky || true",

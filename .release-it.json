@@ -17,5 +17,11 @@
     "after:git:release": "echo 成功创建版本 v${version} 并打上标签！",
     "after:release": "echo 版本发布完成！现在你可以运行 pnpm run publish 来发布到 npm。"
   },
-  "changelog": false
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "header": "# Changelog\n\n",
+      "infile": "CHANGELOG.md"
+    }
+  }
 }

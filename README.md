@@ -138,7 +138,12 @@ Vue.use(VxeGridWrap);
   <vxe-grid-wrap ref="gridRef" :grid="grid" />
 </template>
 <script>
-  import { optionsHelper, columnsHelper, eventsHelper, useVxeGrid } from 'vxe-table-middleware';
+  import {
+    optionsHelper,
+    columnsHelper,
+    eventsHelper,
+    useVxeGrid,
+  } from 'vxe-table-middleware';
   export default {
     data() {
       return {
@@ -157,7 +162,7 @@ Vue.use(VxeGridWrap);
             { name: '张三', age: 18, address: '北京市' },
             { name: '李四', age: 20, address: '上海市' },
           ]);
-        })
+        });
       },
       initGrid() {
         // 构造表格配置
@@ -179,7 +184,8 @@ Vue.use(VxeGridWrap);
         this.setGridData();
       },
     },
-  }
+  };
+</script>
 ```
 
 ## 类型提示举例
