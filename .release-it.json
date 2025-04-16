@@ -1,0 +1,26 @@
+{
+  "git": {
+    "commitMessage": "chore: release v${version}",
+    "tagName": "v${version}",
+    "push": true,
+    "requireCleanWorkingDir": true
+  },
+  "github": {
+    "release": false
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "before:init": ["pnpm run lint", "pnpm run build"],
+    "after:bump": ["node scripts/update-workspace.js", "pnpm run build"],
+    "after:git:release": "echo 成功创建版本 v${version} 并打上标签！",
+    "after:release": "echo 版本发布完成！现在你可以运行 pnpm run publish 来发布到 npm。"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
+  }
+}
