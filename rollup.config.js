@@ -55,7 +55,7 @@ const createConfig = (output) => {
       }),
       json(),
     ],
-    external: ['vue', 'xe-utils'],
+    external: ['vue', 'vxe-table', 'xe-utils', 'vxe-table/es/grid'],
   };
 };
 const config = Object.values(formatMap).map((output) => createConfig(output));
