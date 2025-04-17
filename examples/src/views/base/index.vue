@@ -24,7 +24,7 @@ export default {
   methods: {
     getSelected() {
       const gridApi = useVxeGrid(this.$refs.gridRef);
-      console.log(gridApi.getCheckboxRecords());
+      alert(`选择了 ${gridApi.getCheckboxRecords().length} 条数据！`);
     },
     createTable() {
       const columns = columnsHelper();
