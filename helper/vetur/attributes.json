@@ -1,6 +1,26 @@
 {
-  "vxe-grid-wrap/instance": {
-    "description": "由useVxeGrid创建的Grid实例",
-    "type": "object"
+  "vxe-grid-wrap/grid": {
+    "description": "由useVxeGrid创建的Grid构造函数",
+    "type": "function"
+  },
+  "vxe-grid-wrap/height": {
+    "description": "表格的高度",
+    "type": "number | string"
+  },
+  "vxe-grid-wrap/min-height": {
+    "description": "表格最小高度",
+    "type": "number | string"
+  },
+  "vxe-grid-wrap/max-height": {
+    "description": "表格的最大高度",
+    "type": "number | string"
+  },
+  "vxe-grid-wrap/loading": {
+    "description": "表格是否显示加载中",
+    "type": "boolean"
+  },
+  "vxe-grid-wrap/keep-source": {
+    "description": "",
+    "type": ""
   }
 }

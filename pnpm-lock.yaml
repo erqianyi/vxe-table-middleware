@@ -115,8 +115,8 @@ catalogs:
       specifier: ^3.13.5
       version: 3.15.4
     vxe-table-middleware:
-      specifier: ^0.1.0-beta.1
-      version: 0.1.0-beta.1
+      specifier: ^0.1.0-beta.2
+      version: 0.1.0-beta.2
     xe-utils:
       specifier: ^3.7.2
       version: 3.7.4
@@ -215,7 +215,7 @@ importers:
     dependencies:
       vxe-table-middleware:
         specifier: 'catalog:'
-        version: link:..
+        version: 0.1.0-beta.2(vue@2.7.16)(vxe-pc-ui@3.5.24(vue@2.7.16))(vxe-table@3.15.4(vue@2.7.16))(xe-utils@3.7.4)
     devDependencies:
       vuepress:
         specifier: 'catalog:'
@@ -234,7 +234,7 @@ importers:
         version: 3.6.5(vue@2.7.16)
       vxe-table-middleware:
         specifier: 'catalog:'
-        version: link:..
+        version: 0.1.0-beta.2(vue@2.7.16)(vxe-pc-ui@3.5.24(vue@2.7.16))(vxe-table@3.15.4(vue@2.7.16))(xe-utils@3.7.4)
     devDependencies:
       '@babel/core':
         specifier: 'catalog:'
@@ -8065,6 +8065,15 @@ packages:
 
   vxe-pc-ui@3.5.24:
     resolution: {integrity: sha512-sW1pOH++NBxlYhspkbiTLJ6CIUnboKpruuo8ruq9xhvBieOtmJ+pAO4pe3xqIqZS+Eklg/xGH4ITOPTHi86Oqg==}
+
+  vxe-table-middleware@0.1.0-beta.2:
+    resolution: {integrity: sha512-h9mSddnb83sdl66bJ/mofNrxgtjiblsQRLr5aMdbaE40ZeMp/H8VBwRYgQGe5ngfhnL4hVWnJVEpawaCmvfXNw==}
+    engines: {node: '>=20', pnpm: '>=10'}
+    peerDependencies:
+      vue: ^2.6.14
+      vxe-pc-ui: ^3.3.97
+      vxe-table: ^3.13.5
+      xe-utils: ^3.7.2
 
   vxe-table@3.15.4:
     resolution: {integrity: sha512-DsJb1SW5FKDDfeE/9bWapJrIA4ZobbbPEIibTpygRxfvgQe02Tre2XA9cX8qFnK3pgTMvcfRe3bmkr+fY062WA==}
@@ -17142,7 +17151,7 @@ snapshots:
       safer-buffer: 2.1.2
       sax: 1.2.4
       semver: 6.3.1
-      source-map: 0.7.4
+      source-map: 0.7.3
     transitivePeerDependencies:
       - supports-color
 
@@ -17900,6 +17909,13 @@ snapshots:
       '@vxe-ui/core': 3.0.35(vue@2.7.16)
     transitivePeerDependencies:
       - vue
+
+  vxe-table-middleware@0.1.0-beta.2(vue@2.7.16)(vxe-pc-ui@3.5.24(vue@2.7.16))(vxe-table@3.15.4(vue@2.7.16))(xe-utils@3.7.4):
+    dependencies:
+      vue: 2.7.16
+      vxe-pc-ui: 3.5.24(vue@2.7.16)
+      vxe-table: 3.15.4(vue@2.7.16)
+      xe-utils: 3.7.4
 
   vxe-table@3.15.4(vue@2.7.16):
     dependencies:

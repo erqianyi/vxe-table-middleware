@@ -1,6 +1,13 @@
 {
   "vxe-grid-wrap": {
-    "attributes": ["instance"],
+    "attributes": [
+      "grid",
+      "height",
+      "min-height",
+      "max-height",
+      "loading",
+      "keep-source"
+    ],
     "description": "基于VxeGrid封装的表格组件"
   }
 }

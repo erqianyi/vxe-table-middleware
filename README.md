@@ -1,12 +1,14 @@
 <div align="center">
-  <img width="100" src="./examples/src/assets/avatar_640.png" alt="vxe-table-middleware" style="border:1px solid #1b84ff;border-radius:50%;margin:30px;">
+  <img width="100" src="./examples/src/assets/avatar_640.png" alt="vxe-table-middleware">
+  <p>
+  
+  ![GitHub License](https://img.shields.io/github/license/erqianyi/vxe-table-middleware?style=flat-square)
 
-![GitHub License](https://img.shields.io/github/license/erqianyi/vxe-table-middleware?style=flat-square)
-
+  </p>
   <h1>Vxe Table Middleware</h1>
 </div>
 
-![NPM Version](https://img.shields.io/npm/v/vxe-table-middleware?style=flat-square) ![GitHub repo size](https://img.shields.io/github/repo-size/erqianyi/vxe-table-middleware?style=flat-square)
+![NPM Version](https://img.shields.io/npm/v/vxe-table-middleware?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/vxe-table-middleware?style=flat-square) ![NPM Downloads](https://img.shields.io/npm/dm/vxe-table-middleware?style=flat-square) ![NPM Type Definitions](https://img.shields.io/npm/types/vxe-table-middleware?style=flat-square)
 
 ## 简介
 

@@ -3,7 +3,7 @@
  */
 
 import Vue from 'vue';
-import { isFunction } from 'xe-utils';
+import { isFunction, isUndefined } from 'xe-utils';
 import { mergeWithArrayOverride } from './merge-with-array-override';
 import { FLAG_OPTIONS_ATTR, FLAG_NAME } from './constant';
 
@@ -105,9 +105,13 @@ export class GridConstructor {
       render(h) {
         const { gridProps, $parent = {} } = this;
         const hasEventConfig = events && Object.keys(events).length;
+        const parentProps = {};
+        for (const [key, prop] of Object.entries($parent.$props || {})) {
+          if (!isUndefined(prop) && key !== 'grid') parentProps[key] = prop; // 过滤掉grid和undefined的属性
+        }
         return h('vxe-grid', {
           ref: VXE_GRID_COMPONENT_REF,
-          props: { ...gridProps },
+          props: { ...gridProps, ...parentProps },
           scopedSlots: { ...($parent.$scopedSlots || {}) },
           // 工具函数定义的事件 权重 高于 标签上定义的事件
           on: hasEventConfig ? events : { ...($parent.$listeners || {}) },
