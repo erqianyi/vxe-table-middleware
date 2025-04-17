@@ -36,6 +36,7 @@ catalog:
   vue: ^2.6.14
   vue-router: ^3.5.3
   vuepress: 1.9.10
+  vuepress-plugin-demo-container-v2: ^2.3.4
   vxe-pc-ui: ^3.3.97
   vxe-table: ^3.13.5
   vxe-table-middleware: ^0.1.0-beta.3

@@ -10,6 +10,10 @@
     "vxe-table-middleware": "catalog:"
   },
   "devDependencies": {
-    "vuepress": "catalog:"
+    "vuepress": "catalog:",
+    "vuepress-plugin-demo-container-v2": "catalog:"
+  },
+  "resolutions": {
+    "html-entities": "1.4.0"
   }
 }
