@@ -38,5 +38,5 @@ catalog:
   vuepress: 1.9.10
   vxe-pc-ui: ^3.3.97
   vxe-table: ^3.13.5
-  vxe-table-middleware: ^0.1.0-beta.2
+  vxe-table-middleware: ^0.1.0-beta.3
   xe-utils: ^3.7.2
