@@ -1,44 +1,21 @@
-<div align="center">
-  <img width="100" src="./examples/src/assets/avatar_640.png" alt="vxe-table-middleware">
-  <p>
-  
-  ![GitHub License](https://img.shields.io/github/license/erqianyi/vxe-table-middleware?style=flat-square)
+# 快速开始
 
-  </p>
-  <h1>Vxe Table Middleware</h1>
-</div>
+::: warning
+**注意：** 本工具为使用`vxe-table`时的一个中间件，`vxe-table`的注册请参考[官方文档](https://vxetable.cn/v3/#/start/install)！
+**目前本工具依赖`vxe-grid`需要全局安装**。
+:::
 
-![NPM Version](https://img.shields.io/npm/v/vxe-table-middleware?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/vxe-table-middleware?style=flat-square) ![NPM Downloads](https://img.shields.io/npm/dm/vxe-table-middleware?style=flat-square) ![NPM Type Definitions](https://img.shields.io/npm/types/vxe-table-middleware?style=flat-square)
+本中间件包含以下模块：
 
-## 简介
-
-本工具为应用`vxe-table`时的一个中间件，基于`vxe-table`表格组件**v3.9+版本**封装，旨在提供一个创建表格和配置的方案，让 Vue2 开发的项目支持一定的类型提示，提升开发体验！
-
-## 为什么
-
-### 背景
-
-在原公司时，使用`vxe-table`组件比较早，大概是 v1 版本时候，我封装了表格创建的中间件，原目的一是为了符合当时开发人员的习惯，将模板开发转化为 js 逻辑开发，二是为了统一各项目风格，统一更新，提升开发与管理效率。后来随着`vxe-table`大小版本升级，有一些破坏性更新，中间件的优势就体现了，我只需要修改中间件的内部逻辑就可以实现适配，各项目历史代码基本不会受影响。
-
-24 年计划将依赖的`vxe-table`版本由 v2 升级到 v3 时候有了一些新的想法，`vxe-grid`功能也齐全了，于是除了将原方案适配到 v3，同时基于`vxe-grid`做了拓展方案，包括 grid 创建工具和配置工具，同时，由于 vue2 开发项目未使用 TS，之前的方案在使用时会经常查询文档的痛点，所以这次拓展方案通过设计了函数式编程方式以提供一定的 TS 类型支持，优化开发体验。不过离职时尚未开发完成，所以拓展方案尚未经过大量项目验证。
-
-本工具即提取自该拓展方案，并完成了初期逻辑开发和类型文件，同时解决了后续发现的核心实现上的问题。虽然是个技术小渣渣，但是我觉得当时的思路可以分享出来，不一定直接使用本工具，也可以作为一个实现思路的参考。
-
-## 文档
-
-_待补充..._
-
-## 更新日志
-
-[CHANGELOG](./CHANGELOG.md)
-
-## 环境
-
-- node：>=20
-- pnpm: >=10
-- vue: >=2.6.14
+- `VxeGridWrap`：组件
+- `optionsHelper`：表格配置工具
+- `columnsHelper`：表格列配置工具
+- `eventsHelper`：表格事件配置工具
+- `useVxeGrid`：表格构造工具和 API 接口工具
 
 ## 安装
+
+> `vxe-table`的安装与注册不再赘述
 
 ```bash
 npm install vxe-table-middleware
@@ -50,8 +27,9 @@ pnpm add vxe-table-middleware
 
 ## 使用
 
-> **注意：** 本工具为使用`vxe-table`时的一个中间件，`vxe-table`的注册请参考[官方文档](https://vxetable.cn/v3/#/start/install)！
-> **目前本工具依赖`vxe-grid`需要全局安装**。
+::: tip
+以下注册只指的是`VxeGridWrap`组件的注册，建议使用全局注册，局部注册需要在每个组件中引入比较繁琐，该组件可以理解为`vxe-grid`的壳子，代码量极少。
+:::
 
 ### 全局注册
 
@@ -197,23 +175,19 @@ Vue.use(VxeGridWrap);
 
 以下部分类型提示示例：
 
-![optionsHelper](./docs/src/.vuepress/assets/images/options-tip-1.png)
-![optionsHelper](./docs/src/.vuepress/assets/images/options-tip-2.png)
-![optionsHelper](./docs/src/.vuepress/assets/images/options-tip-3.png)
-![optionsHelper](./docs/src/.vuepress/assets/images/options-tip-4.png)
+![optionsHelper](../.vuepress/assets/images/options-tip-1.png)
+![optionsHelper](../.vuepress/assets/images/options-tip-2.png)
+![optionsHelper](../.vuepress/assets/images/options-tip-3.png)
+![optionsHelper](../.vuepress/assets/images/options-tip-4.png)
 
-![columnsHelper](./docs/src/.vuepress/assets/images/column-tip-1.png)
-![columnsHelper](./docs/src/.vuepress/assets/images/column-tip-2.png)
-![columnsHelper](./docs/src/.vuepress/assets/images/column-tip-3.png)
+![columnsHelper](../.vuepress/assets/images/column-tip-1.png)
+![columnsHelper](../.vuepress/assets/images/column-tip-2.png)
+![columnsHelper](../.vuepress/assets/images/column-tip-3.png)
 
-![eventsHelper](./docs/src/.vuepress/assets/images/event-tip-1.png)
+![eventsHelper](../.vuepress/assets/images/event-tip-1.png)
 
-![useVxeGrid](./docs/src/.vuepress/assets/images/create-tip-1.png)
-![useVxeGrid](./docs/src/.vuepress/assets/images/create-tip-2.png)
+![useVxeGrid](../.vuepress/assets/images/create-tip-1.png)
+![useVxeGrid](../.vuepress/assets/images/create-tip-2.png)
 
-![gridApi](./docs/src/.vuepress/assets/images/api-tip-1.png)
-![gridApi](./docs/src/.vuepress/assets/images/api-tip-2.png)
-
-## License
-
-[MIT © 2100](./LICENSE)
+![gridApi](../.vuepress/assets/images/api-tip-1.png)
+![gridApi](../.vuepress/assets/images/api-tip-2.png)

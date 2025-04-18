@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   base: '/docs-vxe-table-middleware/',
   title: 'VxeTableMiddleware',
@@ -25,10 +27,17 @@ module.exports = {
   themeConfig: {
     logo: '/avatar.png',
     author: '2100',
+    sidebarDepth: 0,
     locales: {
       '/zh/': {
         selectText: '选择语言',
         label: '简体中文',
+        serviceWorker: {
+          updatePopup: {
+            message: '发现新内容可用.',
+            buttonText: '刷新',
+          },
+        },
         nav: [
           {
             text: 'Github',
@@ -37,7 +46,35 @@ module.exports = {
           },
         ],
         sidebar: {
-          '/zh/': ['about'],
+          '/zh/': [
+            'about',
+            'start',
+            {
+              title: '组件',
+              collapsable: false,
+              children: ['component/guide', 'component/examples'],
+            },
+            {
+              title: 'Grid配置',
+              collapsable: false,
+              children: ['options/guide'],
+            },
+            {
+              title: '列配置',
+              collapsable: false,
+              children: ['columns/guide'],
+            },
+            {
+              title: '事件配置',
+              collapsable: false,
+              children: ['events/guide'],
+            },
+            {
+              title: 'Grid方法',
+              collapsable: false,
+              children: ['methods/guide'],
+            },
+          ],
         },
         lastUpdated: '上次更新',
         smoothScroll: true,
@@ -71,4 +108,12 @@ module.exports = {
       },
     ],
   ],
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@src': path.resolve(__dirname, '../../src/'),
+        '@doc': path.resolve(__dirname, './'),
+      },
+    },
+  },
 };
