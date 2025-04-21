@@ -118,12 +118,7 @@ Vue.use(VxeGridWrap);
   <vxe-grid-wrap ref="gridRef" :grid="grid" />
 </template>
 <script>
-  import {
-    optionsHelper,
-    columnsHelper,
-    eventsHelper,
-    useVxeGrid,
-  } from 'vxe-table-middleware';
+  import { optionsHelper, columnsHelper, eventsHelper, useVxeGrid } from 'vxe-table-middleware';
   export default {
     data() {
       return {

@@ -57,17 +57,17 @@ module.exports = {
             {
               title: 'Grid配置',
               collapsable: false,
-              children: ['options/guide'],
+              children: ['options/guide', 'options/examples'],
             },
             {
               title: '列配置',
               collapsable: false,
-              children: ['columns/guide'],
+              children: ['columns/guide', 'columns/examples'],
             },
             {
               title: '事件配置',
               collapsable: false,
-              children: ['events/guide'],
+              children: ['events/guide', 'events/examples'],
             },
             {
               title: 'Grid方法',
@@ -107,6 +107,7 @@ module.exports = {
         ],
       },
     ],
+    ['vuepress-plugin-autodoc'],
   ],
   configureWebpack: {
     resolve: {
@@ -115,5 +116,8 @@ module.exports = {
         '@doc': path.resolve(__dirname, './'),
       },
     },
+  },
+  markdown: {
+    lineNumbers: true,
   },
 };

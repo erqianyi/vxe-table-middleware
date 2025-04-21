@@ -10,7 +10,9 @@
     "vxe-table-middleware": "catalog:"
   },
   "devDependencies": {
+    "jsdoc": "catalog:",
     "vuepress": "catalog:",
+    "vuepress-plugin-autodoc": "catalog:",
     "vuepress-plugin-demo-container-v2": "catalog:"
   },
   "resolutions": {

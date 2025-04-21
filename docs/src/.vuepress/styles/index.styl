@@ -1,7 +1,25 @@
 // home
-.home .hero img {
-  width: 180px;
-}
+.home
+  .hero
+    img
+      width: 180px;
+
+// default theme
+
+
+// demo
+.demo-block
+  div[class*="language-"]
+    .highlight-lines
+      .highlighted
+       background: rgba($accentColor, 0.5);
+
+.demo-block
+  div[class*="language-"].line-numbers-mode
+    .highlight-lines
+      .highlighted:before
+        width: 2rem;
+        background: rgba($accentColor, 0.5);
 
 .vxe-table
   table

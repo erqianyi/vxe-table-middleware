@@ -7,15 +7,8 @@
 ```html
 <template>
   <div>
-    <vxe-button status="primary" @click="isLoading = !isLoading"
-      >显示/隐藏loading</vxe-button
-    >
-    <vxe-grid-wrap
-      ref="gridRef"
-      :grid="grid"
-      :loading="isLoading"
-      height="300px"
-    />
+    <vxe-button status="primary" @click="isLoading = !isLoading">显示/隐藏loading</vxe-button>
+    <vxe-grid-wrap ref="gridRef" :grid="grid" :loading="isLoading" height="300px" />
   </div>
 </template>
 <script>
@@ -66,11 +59,7 @@
 ```html
 <template>
   <div>
-    <vxe-grid-wrap
-      ref="gridRef"
-      :grid="grid"
-      @checkbox-change="onCheckboxChange"
-    />
+    <vxe-grid-wrap ref="gridRef" :grid="grid" @checkbox-change="onCheckboxChange" />
   </div>
 </template>
 <script>
