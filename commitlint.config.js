@@ -12,10 +12,8 @@ module.exports = defineConfig({
       customScope: 'Denote the SCOPE of this change:',
       subject: 'Write a SHORT, IMPERATIVE tense description of the change:\n',
       body: 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n',
-      breaking:
-        'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
-      footerPrefixesSelect:
-        'Select the ISSUES type of changeList by this change (optional):',
+      breaking: 'List any BREAKING CHANGES (optional). Use "|" to break new line:\n',
+      footerPrefixesSelect: 'Select the ISSUES type of changeList by this change (optional):',
       customFooterPrefix: 'Input ISSUES prefix:',
       footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
       generatingByAI: 'Generating your AI commit subject...',
@@ -92,9 +90,7 @@ module.exports = defineConfig({
     breaklineNumber: 100,
     breaklineChar: '|',
     skipQuestions: [],
-    issuePrefixes: [
-      { value: 'closed', name: 'closed:   ISSUES has been processed' },
-    ],
+    issuePrefixes: [{ value: 'closed', name: 'closed:   ISSUES has been processed' }],
     customIssuePrefixAlign: 'top',
     emptyIssuePrefixAlias: 'skip',
     customIssuePrefixAlias: 'custom',

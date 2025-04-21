@@ -22,6 +22,7 @@ catalog:
   eslint-plugin-prettier: ^3.4.1
   eslint-plugin-vue: ^8.0.3
   vue-template-compiler: ^2.6.14
+  jsdoc: ^4.0.4
   js-yaml: ^4.1.0
   husky: ^9.1.7
   lint-staged: ^15.5.0
@@ -36,6 +37,7 @@ catalog:
   vue: ^2.6.14
   vue-router: ^3.5.3
   vuepress: 1.9.10
+  vuepress-plugin-autodoc: ^0.1.7
   vuepress-plugin-demo-container-v2: ^2.3.4
   vxe-pc-ui: ^3.3.97
   vxe-table: ^3.13.5

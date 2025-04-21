@@ -138,14 +138,7 @@ class OptionsHelperClass {
    * @returns this
    */
   addClassName(type, className) {
-    const types = [
-      'row',
-      'cell',
-      'header-row',
-      'header-cell',
-      'footer-row',
-      'footer-cell',
-    ];
+    const types = ['row', 'cell', 'header-row', 'header-cell', 'footer-row', 'footer-cell'];
     if (!type || !types.includes(type)) {
       throw new Error(`addClassName 'type' must be one of ${types}`);
     }
@@ -554,11 +547,11 @@ class OptionsHelperClass {
    * @returns this
    */
   proxyHandlers(proxyHandlers) {
-    const { ajax } = this._options['proxyConfig'] || {};
-    Object.assign(ajax || {}, proxyHandlers);
+    const { ajax = {} } = this._options['proxyConfig'] || {};
+    Object.assign(ajax, proxyHandlers);
     this._options['proxyConfig'] = {
       ...(this._options['proxyConfig'] || {}),
-      ajax,
+      ...{ ajax },
     };
     return this;
   }

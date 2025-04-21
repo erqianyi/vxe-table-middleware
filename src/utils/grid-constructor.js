@@ -47,9 +47,7 @@ export class GridConstructor {
               ...mergeWithArrayOverride(this.optionsConfig, opts),
             };
           } else {
-            throw new Error(
-              '[useVxeGrid] `updateOptions`方法参数必须为 optionsHelper实例'
-            );
+            throw new Error('[useVxeGrid] `updateOptions`方法参数必须为 optionsHelper实例');
           }
           return this.$nextTick();
         },
@@ -62,26 +60,17 @@ export class GridConstructor {
           if (columns && columns._getColumns) {
             const cols = columns._getColumns();
             if (cols.some((col) => !col.field)) {
-              console.error(
-                '[useVxeGrid] 更新列失败，列配置项必须包含field属性'
-              );
+              console.error('[useVxeGrid] 更新列失败，列配置项必须包含field属性');
               return;
             }
             cols.forEach((col) => {
-              const column = this.columnsConfig.find(
-                (item) => item.field === col.field
-              );
+              const column = this.columnsConfig.find((item) => item.field === col.field);
               if (column) mergeWithArrayOverride(column, col);
-              else
-                console.error(
-                  `[useVxeGrid] 更新列失败，原配置项未找到${col.field}列`
-                );
+              else console.error(`[useVxeGrid] 更新列失败，原配置项未找到${col.field}列`);
             });
             this.columnsConfig = [...this.columnsConfig];
           } else {
-            throw new Error(
-              '[useVxeGrid] `updateColumns`方法参数必须为 columnsHelper实例'
-            );
+            throw new Error('[useVxeGrid] `updateColumns`方法参数必须为 columnsHelper实例');
           }
           return this.$nextTick();
         },
@@ -96,9 +85,7 @@ export class GridConstructor {
               throw new Error(`[useVxeGrid] ${fnName} is not a function`);
             }
           } else {
-            throw new Error(
-              '[useVxeGrid] Grid尚未准备完成！尝试添加 $nextTick'
-            );
+            throw new Error('[useVxeGrid] Grid尚未准备完成！尝试添加 $nextTick');
           }
         },
       },

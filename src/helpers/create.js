@@ -12,11 +12,7 @@ export const gridApiMaps = new WeakMap();
 
 // 是否为VxeGridWrap组件实例
 function isVxeGridWrap(obj) {
-  return (
-    obj.$el &&
-    isElement(obj.$el) &&
-    obj.$el.getAttribute(FLAG_ATTR) === FLAG_NAME
-  );
+  return obj.$el && isElement(obj.$el) && obj.$el.getAttribute(FLAG_ATTR) === FLAG_NAME;
 }
 // 创建Grid的参数是否合法
 function validCreateParams(params) {

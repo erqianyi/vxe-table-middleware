@@ -39,7 +39,7 @@ export class ExtendAndProxyAPI extends GridProxyAPI {
 
   /**
    * 更新修改配置项
-   * @params {OptionsHelperIns} options 配置项实例
+   * @param {object} options 配置项实例 - OptionsHelperIns
    * @returns Promise
    */
   updateOptions(options) {
@@ -47,7 +47,7 @@ export class ExtendAndProxyAPI extends GridProxyAPI {
   }
   /**
    * 更新修改列配置项
-   * @params {ColumnsHelperIns} columns 配置项实例
+   * @param {object} columns 配置项实例 - ColumnsHelperIns
    * @returns Promise
    */
   updateColumns(columns) {

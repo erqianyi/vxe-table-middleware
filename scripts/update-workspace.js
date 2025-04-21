@@ -27,9 +27,7 @@ if (workspaceYaml.catalog && workspaceYaml.catalog['vxe-table-middleware']) {
     'utf8'
   );
 
-  console.log(
-    `已更新 pnpm-workspace.yaml 中 vxe-table-middleware 的版本号为 ^${version}`
-  );
+  console.log(`已更新 pnpm-workspace.yaml 中 vxe-table-middleware 的版本号为 ^${version}`);
 } else {
   console.error('在 pnpm-workspace.yaml 中未找到 vxe-table-middleware 配置');
   process.exit(1);
