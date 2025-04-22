@@ -66,8 +66,8 @@ export interface ColumnsHelperIns {
   align(
     align: VxeColumnPropTypes.Align,
     extra?: {
-      headerAlign?: VxeColumnPropTypes.HeaderAlign;
-      footerAlign?: VxeColumnPropTypes.FooterAlign;
+      header?: VxeColumnPropTypes.HeaderAlign;
+      footer?: VxeColumnPropTypes.FooterAlign;
     }
   ): ColumnsHelperIns;
   /**
@@ -79,8 +79,8 @@ export interface ColumnsHelperIns {
   showOverflow(
     showOverflow: VxeColumnPropTypes.ShowOverflow,
     extra?: {
-      showHeaderOverflow?: VxeColumnPropTypes.ShowHeaderOverflow;
-      showFooterOverflow?: VxeColumnPropTypes.ShowFooterOverflow;
+      header?: VxeColumnPropTypes.ShowHeaderOverflow;
+      footer?: VxeColumnPropTypes.ShowFooterOverflow;
     }
   ): ColumnsHelperIns;
   /**
@@ -92,8 +92,8 @@ export interface ColumnsHelperIns {
   className(
     className: VxeColumnPropTypes.ClassName<string>,
     extra?: {
-      headerClassName?: VxeColumnPropTypes.HeaderClassName<string>;
-      footerClassName?: VxeColumnPropTypes.FooterClassName<string>;
+      header?: VxeColumnPropTypes.HeaderClassName<string>;
+      footer?: VxeColumnPropTypes.FooterClassName<string>;
     }
   ): ColumnsHelperIns;
   /**
@@ -101,9 +101,7 @@ export interface ColumnsHelperIns {
    * @params {string} verticalAlign 垂直对齐方式 'top' | 'center'
    * @returns ColumnsHelperIns
    */
-  verticalAlign(
-    verticalAlign: VxeColumnPropTypes.VerticalAlign
-  ): ColumnsHelperIns;
+  verticalAlign(verticalAlign: VxeColumnPropTypes.VerticalAlign): ColumnsHelperIns;
   /**
    * 格式化显示内容
    * @params {(function|array|string)} formatter
@@ -142,9 +140,7 @@ export interface ColumnsHelperIns {
    * @params {function} filterResetMethod: ({ options, column }) => void
    * @returns ColumnsHelperIns
    */
-  filterResetMethod(
-    filterResetMethod: VxeColumnPropTypes.FilterResetMethod
-  ): ColumnsHelperIns;
+  filterResetMethod(filterResetMethod: VxeColumnPropTypes.FilterResetMethod): ColumnsHelperIns;
   /**
    * 自定义筛选复原方法（使用自定义筛选时可能会用到）
    * @params {function} filterRecoverMethod: ({ options, column }) => void
@@ -159,10 +155,7 @@ export interface ColumnsHelperIns {
    * @params {object} renderOptions?: {props?:object; events":object; content?:string}
    * @returns ColumnsHelperIns
    */
-  filterRender(
-    name: string,
-    renderOptions?: VxeColumnPropTypes.FilterRender
-  ): ColumnsHelperIns;
+  filterRender(name: string, renderOptions?: VxeColumnPropTypes.FilterRender): ColumnsHelperIns;
   /**
    * 标题前缀图标配置项
    * @params {object} prefix: {content?:string; icon?:string;}
@@ -181,30 +174,21 @@ export interface ColumnsHelperIns {
    * @params {object} renderOptions? 渲染器配置项
    * @returns ColumnsHelperIns
    */
-  cellRender(
-    name: string,
-    renderOptions?: VxeColumnPropTypes.CellRender
-  ): ColumnsHelperIns;
+  cellRender(name: string, renderOptions?: VxeColumnPropTypes.CellRender): ColumnsHelperIns;
   /**
    * 可编辑渲染器配置项
    * @params {string} name 渲染器名称
    * @params {object} renderOptions? 渲染器配置项
    * @returns ColumnsHelperIns
    */
-  editRender(
-    name: string,
-    renderOptions?: VxeColumnPropTypes.EditRender
-  ): ColumnsHelperIns;
+  editRender(name: string, renderOptions?: VxeColumnPropTypes.EditRender): ColumnsHelperIns;
   /**
    * 内容渲染器配置项
    * @params {string} name 渲染器名称
    * @params {object} renderOptions? 渲染器配置项
    * @returns ColumnsHelperIns
    */
-  contentRender(
-    name: string,
-    renderOptions?: VxeColumnPropTypes.ContentRender
-  ): ColumnsHelperIns;
+  contentRender(name: string, renderOptions?: VxeColumnPropTypes.ContentRender): ColumnsHelperIns;
   /**
    * 指定为树节点，只对 tree-config 配置时有效
    * @params {boolean} isTreeNode 默认值 false

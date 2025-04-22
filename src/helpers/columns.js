@@ -101,8 +101,8 @@ class ColumnsHelperClass {
    */
   align(align, extra = {}) {
     if (align) this.column['align'] = align;
-    if (extra.headerAlign) this.column['headerAlign'] = extra.headerAlign;
-    if (extra.footerAlign) this.column['footerAlign'] = extra.footerAlign;
+    if (extra.header) this.column['headerAlign'] = extra.header;
+    if (extra.footer) this.column['footerAlign'] = extra.footer;
     return this;
   }
   /**
@@ -113,8 +113,8 @@ class ColumnsHelperClass {
    */
   showOverflow(showOverflow, extra = {}) {
     if (showOverflow) this.column['showOverflow'] = showOverflow;
-    if (extra.showHeaderOverflow) this.column['showHeaderOverflow'] = extra.showHeaderOverflow;
-    if (extra.showFooterOverflow) this.column['showFooterOverflow'] = extra.showFooterOverflow;
+    if (extra.header) this.column['showHeaderOverflow'] = extra.header;
+    if (extra.footer) this.column['showFooterOverflow'] = extra.footer;
     return this;
   }
   /**
@@ -125,8 +125,8 @@ class ColumnsHelperClass {
    */
   className(className, extra = {}) {
     if (className) this.column['className'] = className;
-    if (extra.headerClassName) this.column['headerClassName'] = extra.headerClassName;
-    if (extra.footerClassName) this.column['footerClassName'] = extra.footerClassName;
+    if (extra.header) this.column['headerClassName'] = extra.header;
+    if (extra.footer) this.column['footerClassName'] = extra.footer;
     return this;
   }
   /**

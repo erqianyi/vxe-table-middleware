@@ -112,7 +112,7 @@ export default {
         .addClassName('row', 'custom-row-class')
         .addClassName('cell', 'custom-cell-class')
         .showOverflow(false, { header: 'tooltip', footer: 'tooltip' })
-        .cellConfig({ padding: false }, { headerCellConfig: { padding: false }, footerCellConfig: { padding: false } })
+        .cellConfig({ padding: false }, { header: { padding: false }, footer: { padding: false } })
         .proxyConfig({ response: { list: 'listData' } })
         .proxyHandlers({ query: () => testQuery() });
 

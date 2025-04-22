@@ -118,8 +118,8 @@ class OptionsHelperClass {
    */
   align(align, extra = {}) {
     if (align) this._options['align'] = align;
-    if (extra.headerAlign) this._options['headerAlign'] = extra.headerAlign;
-    if (extra.footerAlign) this._options['footerAlign'] = extra.footerAlign;
+    if (extra.header) this._options['headerAlign'] = extra.header;
+    if (extra.footer) this._options['footerAlign'] = extra.footer;
     return this;
   }
   /**
