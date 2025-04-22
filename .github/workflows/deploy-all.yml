@@ -1,4 +1,4 @@
-name: 部署文档和示例
+name: Github Actions
 
 on:
   push:
@@ -44,9 +44,6 @@ jobs:
 
       - name: 安装依赖
         run: pnpm install
-
-      - name: 构建库
-        run: pnpm build
 
       - name: 构建文档
         run: pnpm docs:build

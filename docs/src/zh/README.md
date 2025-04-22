@@ -15,7 +15,7 @@ features:
 ---
 
 ::: slot footer
-![GitHub License](https://img.shields.io/github/license/erqianyi/vxe-table-middleware?style=flat-square) ![NPM Version](https://img.shields.io/npm/v/vxe-table-middleware?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/vxe-table-middleware?style=flat-square) ![NPM Downloads](https://img.shields.io/npm/dm/vxe-table-middleware?style=flat-square) ![NPM Type Definitions](https://img.shields.io/npm/types/vxe-table-middleware?style=flat-square) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/erqianyi/vxe-table-middleware/deploy-all.yml?style=flat-square)
+![GitHub License](https://img.shields.io/github/license/erqianyi/vxe-table-middleware?style=flat-square) ![NPM Version](https://img.shields.io/npm/v/vxe-table-middleware?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/vxe-table-middleware?style=flat-square) ![NPM Downloads](https://img.shields.io/npm/dm/vxe-table-middleware?style=flat-square) ![NPM Type Definitions](https://img.shields.io/npm/types/vxe-table-middleware?style=flat-square) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/erqianyi/vxe-table-middleware/deploy-all.yml?style=flat-square) ![GitHub Actions Workflow](https://github.com/erqianyi/vxe-table-middleware/actions/workflows/deploy-all.yml/badge.svg)
 
 MIT Licensed | Copyright © 2024-present [2100](https://github.com/erqianyi)
 :::
