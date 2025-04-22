@@ -3,7 +3,7 @@ name: 部署文档和示例
 on:
   push:
     branches:
-      - main # 或者您的主分支名称
+      - master # 或者您的主分支名称
     paths:
       - 'docs/**'
       - 'examples/**'
