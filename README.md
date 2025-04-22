@@ -8,7 +8,7 @@
   <h1>Vxe Table Middleware</h1>
 </div>
 
-![NPM Version](https://img.shields.io/npm/v/vxe-table-middleware?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/vxe-table-middleware?style=flat-square) ![NPM Downloads](https://img.shields.io/npm/dm/vxe-table-middleware?style=flat-square) ![NPM Type Definitions](https://img.shields.io/npm/types/vxe-table-middleware?style=flat-square)
+![NPM Version](https://img.shields.io/npm/v/vxe-table-middleware?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/vxe-table-middleware?style=flat-square) ![NPM Downloads](https://img.shields.io/npm/dm/vxe-table-middleware?style=flat-square) ![NPM Type Definitions](https://img.shields.io/npm/types/vxe-table-middleware?style=flat-square) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/erqianyi/vxe-table-middleware/deploy-all.yml?style=flat-square)
 
 ## 简介
 
@@ -140,12 +140,7 @@ Vue.use(VxeGridWrap);
   <vxe-grid-wrap ref="gridRef" :grid="grid" />
 </template>
 <script>
-  import {
-    optionsHelper,
-    columnsHelper,
-    eventsHelper,
-    useVxeGrid,
-  } from 'vxe-table-middleware';
+  import { optionsHelper, columnsHelper, eventsHelper, useVxeGrid } from 'vxe-table-middleware';
   export default {
     data() {
       return {
