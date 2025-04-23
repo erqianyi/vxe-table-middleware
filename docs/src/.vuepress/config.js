@@ -44,6 +44,11 @@ module.exports = {
             link: 'https://github.com/erqianyi/vxe-table-middleware',
             target: '_blank',
           },
+          {
+            text: '其他案例',
+            link: 'http://2100.wang/vxe-table-middleware/examples/',
+            target: '_blank',
+          },
         ],
         sidebar: {
           '/zh/': [

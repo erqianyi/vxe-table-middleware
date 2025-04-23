@@ -1,9 +1,7 @@
 <template>
   <div class="app-page flex flex-column flex-column-fluid">
     <div class="app-header flex flex-row align-items-center">
-      <div
-        class="app-header-logo flex align-items-center justify-content-center"
-      >
+      <div class="app-header-logo flex align-items-center justify-content-center">
         <img src="~@/assets/avatar_640.png" alt="avatar" class="avatar" />
       </div>
       <div
@@ -11,12 +9,16 @@
       >
         <div class="flex flex-column justify-content-center">
           <h1>VxeTableMiddleware</h1>
-          <span class="app-header-description"
-            >VxeTable 创建中间件应用案例</span
-          >
+          <span class="app-header-description">VxeTable 创建中间件应用案例</span>
         </div>
         <div class="flex align-items-center justify-content-center">
-          <a class="app-header-link" href="" target="_blank">查看文档</a>
+          <a
+            class="app-header-link"
+            href="http://2100.wang/vxe-table-middleware/docs/"
+            target="_blank"
+          >
+            查看文档
+          </a>
           <img
             src="~@/assets/svg/github.svg"
             alt="github"
