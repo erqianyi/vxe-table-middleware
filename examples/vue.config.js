@@ -10,7 +10,7 @@ const name = 'vxe-table-middleware'; // page title
 const port = process.env.port || process.env.npm_config_port || 9528; // dev port
 
 module.exports = {
-  publicPath: '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/vxe-table-middleware/examples/' : '/',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',

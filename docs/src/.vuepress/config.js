@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  base: '/docs-vxe-table-middleware/',
+  base: '/vxe-table-middleware/docs/',
   title: 'VxeTableMiddleware',
   description:
     '应用vxe-table时的一个中间件，提供一个创建表格和配置的方案，让Vue2开发的项目支持一定的类型提示，提升开发体验',
