@@ -332,10 +332,6 @@ class ColumnsHelperClass {
   }
 }
 
-/**
- * 列配置工具函数
- * @returns columnsHelperIns 列配置工具函数实例
- */
 function columnsHelper() {
   return new ColumnsHelperClass();
 }

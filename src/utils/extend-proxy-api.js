@@ -28,9 +28,7 @@ class GridProxyAPI {
 }
 addGetters(GridProxyAPI, vxeGridMethods);
 
-/**
- * 拓展和代理VxeGridWrap实例方法
- */
+// 拓展和代理VxeGridWrap实例方法
 export class ExtendAndProxyAPI extends GridProxyAPI {
   constructor(VxeGridWrapIns) {
     super();

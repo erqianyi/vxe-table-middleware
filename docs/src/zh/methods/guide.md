@@ -64,6 +64,6 @@ export default {
 
 ## VxeGridWrap 组件实例方法
 
-/autodoc ../src/utils/extend-proxy-api.js ExtendAndProxyAPI
+/autodoc ../src/utils/extend-proxy-api.js
 
 其他方法请参考 [vxe-grid 文档](https://vxetable.cn/v3/#/grid/api?apiKey=grid) Methods 部分

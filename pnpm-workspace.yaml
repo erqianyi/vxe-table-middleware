@@ -1,6 +1,7 @@
 packages:
   - docs
   - examples
+
 catalog:
   '@babel/core': ^7.12.16
   '@babel/eslint-parser': ^7.12.16
@@ -11,9 +12,9 @@ catalog:
   '@rollup/plugin-json': ^5.0.2
   '@rollup/plugin-node-resolve': ^13.3.0
   '@rollup/plugin-strip': ^2.1.0
-  '@vue/cli-plugin-babel': ~5.0.0
-  '@vue/cli-plugin-eslint': ~5.0.0
-  '@vue/cli-service': ~5.0.0
+  '@vue/cli-plugin-babel': ^4.4.6
+  '@vue/cli-plugin-eslint': ^4.4.6
+  '@vue/cli-service': ^4.4.4
   commitizen: ^4.3.1
   core-js: ^3.8.3
   cz-git: ^1.11.1
