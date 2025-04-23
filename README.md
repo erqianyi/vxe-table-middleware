@@ -26,7 +26,7 @@
 
 ## 文档
 
-_待补充..._
+[查看文档](http://2100.wang/vxe-table-middleware/docs/)
 
 ## 更新日志
 
