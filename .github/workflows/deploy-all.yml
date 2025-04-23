@@ -54,7 +54,7 @@ jobs:
       - name: 部署到 GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: docs/src/.vuepress/dist
+          folder: docs/dist
           branch: gh-pages
           target-folder: docs
 
