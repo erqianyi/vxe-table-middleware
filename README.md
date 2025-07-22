@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="100" src="./examples/src/assets/avatar_640.png" alt="vxe-table-middleware">
+  <img width="100" src="./examples/src/assets/logo.png" alt="vxe-table-middleware">
   <p>
   
   ![GitHub License](https://img.shields.io/github/license/erqianyi/vxe-table-middleware?style=flat-square)
@@ -85,7 +85,7 @@ Vue.use(VxeGridWrap);
       initGrid() {
         // 构造列配置
         const columns = columnsHelper();
-        columns.type('checkbox').fixed('left');
+        columns.type('checkbox').fixed('left').end();
         columns.field('name').title('名称').end();
         columns.field('age').title('年龄').end();
         columns.field('address').title('地址').end();
@@ -121,7 +121,7 @@ Vue.use(VxeGridWrap);
       initGrid() {
         // 构造列配置
         const columns = columnsHelper();
-        columns.type('checkbox').fixed('left');
+        columns.type('checkbox').fixed('left').end();
         columns.field('name').title('名称').end();
         columns.field('age').title('年龄').end();
         columns.field('address').title('地址').end();

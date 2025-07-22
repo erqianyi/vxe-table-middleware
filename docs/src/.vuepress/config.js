@@ -77,7 +77,7 @@ module.exports = {
             {
               title: 'Grid方法',
               collapsable: false,
-              children: ['methods/guide'],
+              children: ['methods/guide', 'methods/examples'],
             },
           ],
         },

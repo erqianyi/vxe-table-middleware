@@ -2,7 +2,7 @@
   <div class="app-page flex flex-column flex-column-fluid">
     <div class="app-header flex flex-row align-items-center">
       <div class="app-header-logo flex align-items-center justify-content-center">
-        <img src="~@/assets/avatar_640.png" alt="avatar" class="avatar" />
+        <img src="~@/assets/logo.png" alt="avatar" class="avatar" />
       </div>
       <div
         class="app-header-wrapper flex-row-fluid flex flex-row align-items-center justify-content-between"
