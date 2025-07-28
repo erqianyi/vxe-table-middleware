@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import type { HelpersDecoratorHandler } from './extend-helper';
 
 export function install(app: typeof Vue): void;
 
@@ -17,5 +18,7 @@ export * from './helpers/options';
 export * from './helpers/columns';
 export * from './helpers/events';
 export * from './helpers/create';
+
+export const helpersDecorator: HelpersDecoratorHandler;
 
 export default VxeGridWrap;

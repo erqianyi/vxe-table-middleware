@@ -2,6 +2,7 @@
  * @Description  : 创建Grid配置项 - props
  */
 
+import { optionExtend, decoratorHandler } from '../utils/extend-helper';
 import { isPlainObject } from 'xe-utils';
 
 class OptionsHelperClass {
@@ -558,7 +559,8 @@ class OptionsHelperClass {
 }
 
 function optionsHelper() {
-  return new OptionsHelperClass();
+  const ins = new OptionsHelperClass();
+  return decoratorHandler(ins, optionExtend);
 }
 
 export default optionsHelper;

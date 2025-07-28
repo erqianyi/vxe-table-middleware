@@ -2,6 +2,7 @@
  * @Description: 创建Grid列配置项
  */
 
+import { columnExtend, decoratorHandler } from '../utils/extend-helper';
 class ColumnsHelperClass {
   constructor() {
     this.columns = [];
@@ -333,7 +334,8 @@ class ColumnsHelperClass {
 }
 
 function columnsHelper() {
-  return new ColumnsHelperClass();
+  const ins = new ColumnsHelperClass();
+  return decoratorHandler(ins, columnExtend);
 }
 
 export default columnsHelper;
