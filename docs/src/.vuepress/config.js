@@ -79,6 +79,11 @@ module.exports = {
               collapsable: false,
               children: ['methods/guide', 'methods/examples'],
             },
+            {
+              title: '拓展方法',
+              collapsable: false,
+              children: ['extend/guide'],
+            },
           ],
         },
         lastUpdated: '上次更新',
