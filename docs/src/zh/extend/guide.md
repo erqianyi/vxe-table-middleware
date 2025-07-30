@@ -48,7 +48,7 @@ helpersDecorator('column', {
 
 在 Vue 组件中使用：
 
-::: demo
+::: demo 经过以上示例拓展后，`optionsHelper`和`columnsHelper`工具分别可以使用拓展后的方法`headerAlign`和`data`了。
 
 ```vue {26,30-32}
 <template>
