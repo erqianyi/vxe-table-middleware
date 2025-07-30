@@ -131,7 +131,18 @@ class ColumnsHelperClass {
     return this;
   }
   /**
+   * 显示边距
+   * @version vxe-table@3.12.10
+   * @param {boolean} hasPadding 是否显示边距
+   * @returns this
+   */
+  padding(hasPadding) {
+    this.column['padding'] = hasPadding;
+    return this;
+  }
+  /**
    * 垂直对齐方式
+   * @version vxe-table@3.12.10
    * @param {string} verticalAlign 垂直对齐方式 'top' | 'center'
    * @returns this
    */

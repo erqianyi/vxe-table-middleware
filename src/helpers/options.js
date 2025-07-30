@@ -213,7 +213,18 @@ class OptionsHelperClass {
     return this;
   }
   /**
+   * 当前列配置信息
+   * @version vxe-table@3.14.0
+   * @param {object} config 配置项，继承全局配置
+   * @returns this
+   */
+  currentColumnConfig(config) {
+    this._options['currentColumnConfig'] = { ...config };
+    return this;
+  }
+  /**
    * 单元格配置项，表头表尾单元格配置项
+   * @version vxe-table@3.10.0/@3.12.10
    * @param {object} cellConfig 配置项，继承全局配置
    * @param {object} [extra={}] 单独配置header-cell-config、footer-cell-config，{ header: {}, footer: {} }
    * @returns this
@@ -231,6 +242,37 @@ class OptionsHelperClass {
    */
   rowConfig(rowConfig) {
     this._options['rowConfig'] = { ...rowConfig };
+    return this;
+  }
+  /**
+   * 当前行配置信息
+   * @version vxe-table@3.15.0
+   * @param {object} config 配置项，继承全局配置
+   * @returns this
+   */
+  currentRowConfig(config) {
+    this._options['currentRowConfig'] = { ...config };
+    return this;
+  }
+  /**
+   * 数据聚合配置项
+   * @version vxe-table@3.15.35
+   * @param {object} config 配置项，继承全局配置
+   * @returns this
+   */
+  aggregateConfig(config) {
+    this._options['aggregateConfig'] = { ...config };
+    return this;
+  }
+  /**
+   * vxe-table版本已废弃，请使用 aggregateConfig
+   * @deprecated
+   * @version vxe-table@3.15.6
+   * @param {object} config 配置项，继承全局配置
+   * @returns this
+   */
+  rowGroupConfig() {
+    console.error(`[optionsHelper] rowGroupConfig is deprecated, please use aggregateConfig!`);
     return this;
   }
   /**
@@ -262,6 +304,7 @@ class OptionsHelperClass {
   }
   /**
    * 行拖拽配置项
+   * @version vxe-table@3.11.0
    * @param {object} rowDragConfig 配置项，继承全局配置
    * @returns this
    */
@@ -271,6 +314,7 @@ class OptionsHelperClass {
   }
   /**
    * 列拖拽配置项
+   * @version vxe-table@3.11.0
    * @param {object} columnDragConfig 配置项，继承全局配置
    * @returns this
    */
@@ -451,6 +495,7 @@ class OptionsHelperClass {
   }
   /**
    * 横向虚拟滚动配置项
+   * @version vxe-table@3.12.10
    * @param {object} virtualXConfig 配置项，继承全局配置
    * @returns this
    */
@@ -460,6 +505,7 @@ class OptionsHelperClass {
   }
   /**
    * 纵向虚拟滚动配置项
+   * @version vxe-table@3.12.10
    * @param {object} virtualYConfig 配置项，继承全局配置
    * @returns this
    */
@@ -469,6 +515,7 @@ class OptionsHelperClass {
   }
   /**
    * 滚动条配置项
+   * @version vxe-table@3.12.10
    * @param {object} scrollbarConfig 配置项，继承全局配置
    * @returns this
    */

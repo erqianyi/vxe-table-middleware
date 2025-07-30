@@ -41,7 +41,7 @@ catalog:
   vuepress: 1.9.10
   vuepress-plugin-autodoc: ^0.1.7
   vuepress-plugin-demo-container-v2: ^2.3.4
-  vxe-pc-ui: ^3.3.97
-  vxe-table: ^3.13.5
+  vxe-pc-ui: 3.8.0
+  vxe-table: 3.16.8
   vxe-table-middleware: ^0.1.0-beta.5
-  xe-utils: ^3.7.2
+  xe-utils: 3.7.8

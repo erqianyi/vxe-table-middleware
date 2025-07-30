@@ -97,7 +97,15 @@ export interface ColumnsHelperIns {
     }
   ): ColumnsHelperIns;
   /**
+   * 显示边距
+   * @version vxe-table@3.12.10
+   * @param {boolean} hasPadding 是否显示边距
+   * @returns ColumnsHelperIns
+   */
+  padding(hasPadding: VxeColumnPropTypes.Padding): ColumnsHelperIns;
+  /**
    * 垂直对齐方式
+   * @version vxe-table@3.12.10
    * @params {string} verticalAlign 垂直对齐方式 'top' | 'center'
    * @returns ColumnsHelperIns
    */

@@ -157,7 +157,15 @@ export interface OptionsHelperIns {
    */
   columnConfig(columnConfig: VxeTablePropTypes.ColumnConfig): OptionsHelperIns;
   /**
+   * 当前列配置信息
+   * @version vxe-table@3.14.0
+   * @params {object} config 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  currentColumnConfig(config: VxeTablePropTypes.CurrentColumnConfig): OptionsHelperIns;
+  /**
    * 单元格配置项，表头表尾单元格配置项
+   * @version vxe-table@3.10.0/@3.12.10
    * @params {object} cellConfig 配置项，继承全局配置
    * @params {object} [extra={}] 单独配置header-cell-config、footer-cell-config，{ header: {}, footer: {} }
    * @returns OptionsHelperIns
@@ -175,6 +183,28 @@ export interface OptionsHelperIns {
    * @returns OptionsHelperIns
    */
   rowConfig(rowConfig: VxeTablePropTypes.RowConfig): OptionsHelperIns;
+  /**
+   * 当前行配置信息
+   * @version vxe-table@3.15.0
+   * @params {object} config 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  currentRowConfig(config: VxeTablePropTypes.CurrentRowConfig): OptionsHelperIns;
+  /**
+   * 数据聚合配置项
+   * @version vxe-table@3.15.35
+   * @params {object} config 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  aggregateConfig(config: VxeTablePropTypes.AggregateConfig): OptionsHelperIns;
+  /**
+   * vxe-table版本已废弃，请使用 aggregateConfig
+   * @deprecated
+   * @version vxe-table@3.15.6
+   * @params {object} config 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  rowGroupConfig(config: VxeTablePropTypes.RowGroupConfig): OptionsHelperIns;
   /**
    * 列宽拖动配置项
    * @params {object} resizableConfig 配置项，继承全局配置
@@ -195,12 +225,14 @@ export interface OptionsHelperIns {
   sortConfig(sortConfig: VxeTablePropTypes.SortConfig): OptionsHelperIns;
   /**
    * 行拖拽配置项
+   * @version vxe-table@3.11.0
    * @params {object} rowDragConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
   rowDragConfig(rowDragConfig: VxeTablePropTypes.RowDragConfig): OptionsHelperIns;
   /**
    * 列拖拽配置项
+   * @version vxe-table@3.11.0
    * @params {object} columnDragConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
@@ -321,18 +353,21 @@ export interface OptionsHelperIns {
   customConfig(customConfig: VxeTablePropTypes.CustomConfig): OptionsHelperIns;
   /**
    * 横向虚拟滚动配置项
+   * @version vxe-table@3.12.10
    * @params {object} virtualXConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
   virtualXConfig(virtualXConfig: VxeTablePropTypes.VirtualXConfig): OptionsHelperIns;
   /**
    * 纵向虚拟滚动配置项
+   * @version vxe-table@3.12.10
    * @params {object} virtualYConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
   virtualYConfig(virtualYConfig: VxeTablePropTypes.VirtualYConfig): OptionsHelperIns;
   /**
    * 滚动条配置项
+   * @version vxe-table@3.12.10
    * @params {object} scrollbarConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
