@@ -2,6 +2,14 @@
 
 
 
+# [0.1.0](https://github.com/erqianyi/vxe-table-middleware/compare/v0.1.0-beta.5...v0.1.0) (2025-07-30)
+
+
+### Features
+
+* :sparkles: 新增optionsHelper和columnsHelper的拓展方法 ([8b63534](https://github.com/erqianyi/vxe-table-middleware/commit/8b63534957849f5d2586d16687bcfea642dab679))
+* :sparkles: 适配vxe-table@3.16.8新增currentColumnConfig、currentRowConfig、aggregateConfig配置 ([2953a44](https://github.com/erqianyi/vxe-table-middleware/commit/2953a44b868f97ad078329005a77dc8bcb394fcf))
+
 # [0.1.0-beta.5](https://github.com/erqianyi/vxe-table-middleware/compare/v0.1.0-beta.4...v0.1.0-beta.5) (2025-04-22)
 
 
