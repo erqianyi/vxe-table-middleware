@@ -16,11 +16,13 @@ class ColumnsHelperClass {
   /**
    * 合并其他由列配置工具函数实例创建的列配置
    * @param {object} columnsHelperIns 列配置工具函数实例
+   * @returns this
    */
   merge(columnsHelperIns) {
     if (columnsHelperIns && columnsHelperIns instanceof ColumnsHelperClass) {
       this.columns = this.columns.concat(columnsHelperIns._getColumns());
     }
+    return this;
   }
   /**
    * 列的类型
@@ -336,7 +338,6 @@ class ColumnsHelperClass {
   }
   /**
    * 完成当前列的配置，开始下一列的配置
-   * @returns this
    */
   end() {
     this.columns.push(this.column);
