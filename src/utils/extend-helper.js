@@ -8,6 +8,9 @@ export const optionExtend = {};
 // column拓展
 export const columnExtend = {};
 
+// formItem拓展
+export const formItemExtend = {};
+
 // 装饰器处理
 export function decoratorHandler(ins, extension) {
   if (isEmpty(extension)) return ins;
@@ -35,6 +38,8 @@ export function helpersDecorator(type = '', extension = {}) {
     Object.assign(optionExtend, methods);
   } else if (type === 'column') {
     Object.assign(columnExtend, methods);
+  } else if (type === 'formItem') {
+    Object.assign(formItemExtend, methods);
   } else {
     throw new Error(`[helpersDecorator] 拓展类型${type}参数异常`);
   }

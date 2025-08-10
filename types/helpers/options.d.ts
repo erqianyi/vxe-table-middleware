@@ -19,6 +19,7 @@ type ClassName<T> = T extends 'row'
   : T extends 'footer-cell'
   ? VxeTablePropTypes.FooterCellClassName
   : never;
+type FormConfig = Exclude<VxeGridPropTypes.FormConfig, 'data' | 'rules' | 'items'>;
 
 export interface OptionsHelperIns {
   /**
@@ -383,7 +384,7 @@ export interface OptionsHelperIns {
    * @params {object} formConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
-  formConfig(formConfig: VxeGridPropTypes.FormConfig): OptionsHelperIns;
+  formConfig(formConfig: FormConfig): OptionsHelperIns;
   /**
    * 工具栏配置项
    * @params {object} toolbarConfig 配置项，继承全局配置
