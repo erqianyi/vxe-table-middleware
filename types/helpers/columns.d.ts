@@ -6,7 +6,7 @@ import type { VxeColumnPropTypes } from 'vxe-table';
 export interface ColumnsHelperIns {
   /**
    * 合并其他由列配置工具函数实例创建的列配置
-   * @param {object} columnsHelperIns 列配置工具函数实例
+   * @params {object} columnsHelperIns 列配置工具函数实例
    */
   merge(columnsHelperIns: ColumnsHelperIns): void;
   /**

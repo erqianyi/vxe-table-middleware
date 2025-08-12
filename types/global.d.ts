@@ -17,6 +17,7 @@ export interface PluginObject {
 export * from './helpers/options';
 export * from './helpers/columns';
 export * from './helpers/events';
+export * from './helpers/form-item';
 export * from './helpers/create';
 
 export const helpersDecorator: HelpersDecoratorHandler;
