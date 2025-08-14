@@ -4,6 +4,7 @@ import type { VxeGridMethods } from 'vxe-table';
 import type { OptionsHelperIns } from './options';
 import type { ColumnsHelperIns } from './columns';
 import type { EventsHelperIns } from './events';
+import { FormItemsHelperIns } from './form-items';
 
 export class VxeGridWrapComponent extends Vue {}
 
@@ -28,6 +29,7 @@ type CreateOpinions = {
   columns: ColumnsHelperIns;
   options?: OptionsHelperIns;
   events?: EventsHelperIns;
+  formItems?: FormItemsHelperIns;
 };
 type GridElement = HTMLElement | typeof VxeGridWrapComponent;
 

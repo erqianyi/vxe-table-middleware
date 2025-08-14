@@ -4,7 +4,7 @@
 
 import { formItemExtend, decoratorHandler } from '../utils/extend-helper';
 import { isEmpty } from 'xe-utils';
-class FormItemHelperClass {
+class FormItemsHelperClass {
   constructor() {
     this._data = {};
     this._items = [];
@@ -35,7 +35,7 @@ class FormItemHelperClass {
    * @returns this
    */
   merge(formItemHelperIns) {
-    if (formItemHelperIns && formItemHelperIns instanceof FormItemHelperClass) {
+    if (formItemHelperIns && formItemHelperIns instanceof FormItemsHelperClass) {
       const { data, items, rules } = formItemHelperIns._getConfig();
       Object.assign(this._data, data);
       this._items.push(...items);
@@ -324,9 +324,9 @@ class FormItemHelperClass {
   }
 }
 
-function formItemHelper() {
-  const ins = new FormItemHelperClass();
+function formItemsHelper() {
+  const ins = new FormItemsHelperClass();
   return decoratorHandler(ins, formItemExtend);
 }
 
-export default formItemHelper;
+export default formItemsHelper;

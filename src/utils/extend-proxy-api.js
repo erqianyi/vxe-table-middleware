@@ -51,4 +51,12 @@ export class ExtendAndProxyAPI extends GridProxyAPI {
   updateColumns(columns) {
     return this.gridComp.updateColumns(columns);
   }
+  /**
+   * 更新修改表单配置项
+   * @param {object} formItems 配置项实例 - FormItemsHelperIns
+   * @returns Promise
+   */
+  updateFormItems(formItems) {
+    return this.gridComp.updateFormItems(formItems);
+  }
 }

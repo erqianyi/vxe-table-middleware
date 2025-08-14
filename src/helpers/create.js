@@ -21,22 +21,25 @@ function validCreateParams(params) {
 
 // 创建Grid实例，单例避免重复创建
 class CreateGrid {
-  constructor({ columns, options, events }) {
+  constructor({ columns, options, events, formItems }) {
     this.columns = columns;
     this.options = options;
     this.events = events;
+    this.formItems = formItems;
   }
 
   createGrid() {
     const columnsConfig = this.columns ? this.columns._getColumns() : [];
     const optionsConfig = this.options ? this.options._getOptions() : {};
     const eventsConfig = this.events ? this.events._getEvents() : {};
+    const formItemsConfig = this.formItems ? this.formItems._getConfig() : {};
 
     // TODO 是否考虑是否重复创建
     const grid = new GridConstructor({
       columns: columnsConfig,
       options: optionsConfig,
       events: eventsConfig,
+      formItems: formItemsConfig,
     });
     return grid.create();
   }

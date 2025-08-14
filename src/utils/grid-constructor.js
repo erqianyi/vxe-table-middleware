@@ -9,27 +9,31 @@ import { FLAG_OPTIONS_ATTR, FLAG_NAME } from './constant';
 
 const VXE_GRID_COMPONENT_REF = '__VXE_GRID_REF__';
 export class GridConstructor {
-  constructor({ columns, options, events }) {
+  constructor({ columns, options, events, formItems }) {
     this.columns = columns;
     this.options = options;
     this.events = events;
+    this.formItems = formItems;
   }
 
   create() {
     const options = this.options;
     const columns = this.columns;
     const events = this.events;
+    const formItems = this.formItems;
     const Grid = Vue.extend({
       data() {
         return {
           optionsConfig: options,
           columnsConfig: columns,
+          formItemsConfig: formItems,
         };
       },
       computed: {
         gridProps() {
           return {
             ...this.optionsConfig,
+            ...{ formConfig: this.formItemsConfig }, // 合并到props.formConfig
             columns: this.columnsConfig,
           };
         },
@@ -71,6 +75,22 @@ export class GridConstructor {
             this.columnsConfig = [...this.columnsConfig];
           } else {
             throw new Error('[useVxeGrid] `updateColumns`方法参数必须为 columnsHelper实例');
+          }
+          return this.$nextTick();
+        },
+        /**
+         * 更新修改表单配置项
+         * @param {FormItemsHelperIns} formItems 配置项实例
+         * @returns Promise
+         */
+        updateFormItems(formItems) {
+          if (formItems && formItems._getConfig) {
+            const formItemsConfig = formItems._getConfig();
+            this.formItemsConfig = {
+              ...mergeWithArrayOverride(this.formItemsConfig, formItemsConfig),
+            };
+          } else {
+            throw new Error('[useVxeGrid] `updateFormItems`方法参数必须为 formItemsHelper实例');
           }
           return this.$nextTick();
         },

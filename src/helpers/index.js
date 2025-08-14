@@ -5,7 +5,7 @@
 import optionsHelper from './options';
 import columnsHelper from './columns';
 import eventsHelper from './events';
-import formItemHelper from './form-item';
+import formItemsHelper from './form-items';
 import useVxeGrid from './create';
 
-export { optionsHelper, columnsHelper, eventsHelper, formItemHelper, useVxeGrid };
+export { optionsHelper, columnsHelper, eventsHelper, formItemsHelper, useVxeGrid };
