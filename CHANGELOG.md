@@ -2,6 +2,13 @@
 
 
 
+# [0.2.0-beta.2](https://github.com/erqianyi/vxe-table-middleware/compare/v0.2.0-beta.1...v0.2.0-beta.2) (2025-08-15)
+
+
+### Bug Fixes
+
+* :bug: 修复formItems数据结构合并问题 ([84f87f0](https://github.com/erqianyi/vxe-table-middleware/commit/84f87f0ede76a5af9b70766a373584b7c23fd9fd))
+
 # [0.2.0-beta.1](https://github.com/erqianyi/vxe-table-middleware/compare/v0.2.0-beta.0...v0.2.0-beta.1) (2025-08-15)
 
 

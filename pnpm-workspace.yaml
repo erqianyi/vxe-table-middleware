@@ -42,5 +42,5 @@ catalog:
   vuepress-plugin-demo-container-v2: ^2.3.4
   vxe-pc-ui: 3.8.0
   vxe-table: 3.16.8
-  vxe-table-middleware: ^0.2.0-beta.1
+  vxe-table-middleware: ^0.2.0-beta.2
   xe-utils: 3.7.8
