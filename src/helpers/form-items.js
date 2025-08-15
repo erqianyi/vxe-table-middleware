@@ -316,9 +316,9 @@ class FormItemsHelperClass {
    * 完成当前表单项的配置，开始下一项的配置
    */
   end() {
-    const { field, defaultValue, rules, ...itemConfig } = this._current;
+    const { field, defaultValue, rules, item } = this._current;
     this._data[field] = defaultValue;
-    this._items.push({ ...itemConfig, field });
+    this._items.push({ ...item, field });
     this._rules[field] = rules;
     this._restCurrent();
   }
