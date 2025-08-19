@@ -2,7 +2,7 @@
 
 ::: tip
 
-组件除了继承`VxeGrid`的所有方法外，还拓展了`updateOptions`和`updateColumns`两个方法，用于更新由`optionsHelper`创建的表格配置项和`columnsHelper`创建的列配置项。
+组件除了继承`VxeGrid`的所有方法外，还拓展了`updateOptions`、`updateColumns`和`updateFormItems`等方法，用于更新由`optionsHelper`创建的表格配置项、`columnsHelper`创建的列配置项，以及`formItemsHelper`创建的表单配置项。
 
 :::
 
