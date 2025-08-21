@@ -80,6 +80,11 @@ module.exports = {
               children: ['methods/guide', 'methods/examples'],
             },
             {
+              title: '查询表单配置',
+              collapsable: false,
+              children: ['form-items/guide', 'form-items/examples'],
+            },
+            {
               title: '拓展方法',
               collapsable: false,
               children: ['extend/guide'],

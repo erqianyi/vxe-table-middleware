@@ -1,11 +1,11 @@
 # 说明
 
 ::: tip
-`vxe-table-middleware`配置构建方法已提供了绝大部分场景的配置方案，如果尚未能满足使用需求，本工具提供了一个`helpersDecorator`方法，用于全局拓展`OptionsHelperIns`和`ColumnsHelperIns`的方法。
+`vxe-table-middleware`配置构建方法已提供了绝大部分场景的配置方案，如果尚未能满足使用需求，本工具提供了一个`helpersDecorator`方法，用于全局拓展`OptionsHelperIns`、`ColumnsHelperIns`和`FormItemsHelperIns`的方法。
 :::
 
 ::: warning
-目前仅支持拓展`OptionsHelperIns`和`ColumnsHelperIns`的方法。
+目前仅支持拓展`OptionsHelperIns`、`ColumnsHelperIns`和`FormItemsHelperIns`的方法。
 :::
 
 ## 方法说明
@@ -44,18 +44,27 @@ helpersDecorator('column', {
     return this; // 返回实例对象，用于链式调用
   },
 });
+
+// 拓展FormItemsHelperIns的方法
+helpersDecorator('formItem', {
+  // 定义原实例中不存在该方法，如：通过数组方式定义rules
+  rules(rules = []) {
+    this._current.rules = rules; // 说明：_current.rules 为实例中存放当前表单验证规则
+    return this; // 返回实例对象，用于链式调用
+  },
+});
 ```
 
 在 Vue 组件中使用：
 
-::: demo 经过以上示例拓展后，`optionsHelper`和`columnsHelper`工具分别可以使用拓展后的方法`headerAlign`和`data`了。
+::: demo 经过以上示例拓展后，`optionsHelper`、`columnsHelper`和`formItemsHelper`工具分别可以使用拓展后的方法`headerAlign`、`data`和`rules`了。
 
-```vue {26,30-32}
+```vue {26,30-32,39}
 <template>
   <vxe-grid-wrap :grid="grid" ref="gridRef" />
 </template>
 <script>
-import { optionsHelper, columnsHelper, useVxeGrid } from 'vxe-table-middleware';
+import { optionsHelper, columnsHelper, formItemsHelper, useVxeGrid } from 'vxe-table-middleware';
 export default {
   data() {
     return {
@@ -83,8 +92,16 @@ export default {
       columns.data('name').title('名称').end();
       columns.data('age').title('年龄').end();
       columns.data('address').title('地址').end();
+      // 表单项
+      const formItems = formItemsHelper();
+      formItems
+        .field('name', '')
+        .title('名称')
+        .itemRender('VxeInput')
+        .rules([{ required: true, message: '请输入名称' }])
+        .end();
       // 构造表格
-      this.grid = useVxeGrid({ options, columns });
+      this.grid = useVxeGrid({ options, columns, formItems });
 
       this.setGridData();
     },

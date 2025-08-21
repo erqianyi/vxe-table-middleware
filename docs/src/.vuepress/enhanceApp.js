@@ -25,6 +25,16 @@ export default async ({ Vue, isServer }) => {
         return this; // 返回实例对象，用于链式调用
       },
     });
+
+    // 拓展FormItemsHelperIns的方法
+    helpersDecorator('formItem', {
+      // 定义原实例中不存在该方法，如：通过数组方式定义rules
+      rules(rules = []) {
+        this._current.rules = rules; // 说明：_current.rules 为实例中存放当前表单验证规则
+        return this; // 返回实例对象，用于链式调用
+      },
+    });
+
     Vue.use(VxeUIAll.default);
     Vue.use(VxeUITable.default);
     Vue.use(VxeGridWrap.default);
