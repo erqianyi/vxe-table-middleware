@@ -11,6 +11,7 @@
 - `optionsHelper`：表格配置工具
 - `columnsHelper`：表格列配置工具
 - `eventsHelper`：表格事件配置工具
+- `formItemsHelper`: 查询表单项配置工具
 - `useVxeGrid`：表格构造工具和 API 接口工具
 
 ## 安装
