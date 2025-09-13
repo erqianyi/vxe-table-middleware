@@ -89,6 +89,13 @@ export default {
 `end`实例方法用于结束每一列的配置，在链式最后调用，否则列配置会发生异常！！！。
 :::
 
+```javascript {3}
+// ...
+const columns = columnsHelper();
+columns.field('name').title('名称').width(100).end();
+// ...
+```
+
 ## 调整的
 
 1. `align`、`headerAlign`、`footerAlign`合并为`align`方法，header 和 footer 的配置作为 align 方法的第二个对象参数；

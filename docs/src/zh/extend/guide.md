@@ -114,13 +114,13 @@ export default {
 
 ### 类型支持
 
-对于用户拓展的方法，如果徐需要类型提示，需要用户自行拓展接口，以下针对上面的举例拓展类型参考（以下文件地址根据自己项目实际情况）：
+对于用户拓展的方法，如果需要类型提示，需要用户自行拓展接口，以下针对上面的举例拓展类型参考（以下文件地址根据自己项目实际情况）：
 
 1. 项目根目录创建`types/index.d.ts`目录和文件，定义拓展方法类型：
 
 ```TypeScript
 import type { OptionsHelperIns, ColumnsHelperIns } from 'vxe-table-middleware';
-import type { VxeTablePropTypes, VxeColumnPropTypes } from 'vxe-table';
+import type { VxeTablePropTypes, VxeColumnPropTypes, VxeFormDefines } from 'vxe-table';
 declare module 'vxe-table-middleware' {
   export interface OptionsHelperIns {
     /**
@@ -138,6 +138,15 @@ declare module 'vxe-table-middleware' {
      * @returns ColumnsHelperIns
      */
     data(data: VxeColumnPropTypes.Field): ColumnsHelperIns;
+  }
+
+  export interface FormItemsHelperIns {
+    /**
+     * 拓展方法-新增rules方法实现原rules方法
+     * @params {array} rules 校验规则
+     * @returns FormItemsHelperIns
+     */
+    rules(rules: VxeFormDefines.FormRule[]): FormItemsHelperIns;
   }
 }
 ```
