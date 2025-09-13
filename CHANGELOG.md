@@ -2,6 +2,8 @@
 
 
 
+# [0.2.0](https://github.com/erqianyi/vxe-table-middleware/compare/v0.2.0-beta.2...v0.2.0) (2025-09-13)
+
 # [0.2.0-beta.2](https://github.com/erqianyi/vxe-table-middleware/compare/v0.2.0-beta.1...v0.2.0-beta.2) (2025-08-15)
 
 
