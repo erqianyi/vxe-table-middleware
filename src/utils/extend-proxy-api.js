@@ -2,9 +2,9 @@
  * @Description  : 拓展和代理gridApi
  */
 
-import { VxeGrid } from 'vxe-table/es/grid';
+import allMethodsStr from './methods-map';
 
-const vxeGridMethods = Object.keys(VxeGrid.methods || {}) || [];
+const vxeGridMethods = allMethodsStr.split(',') || [];
 // 批量添加getter
 function addGetters(cls, fnNames = []) {
   fnNames.forEach((fnName) => {
