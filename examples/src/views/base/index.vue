@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { columnsHelper, useVxeGrid } from 'vxe-table-middleware';
+import { columnsHelper, useVxeGrid } from '../../../../src/index';
 export default {
   name: 'BaseDemo',
   data() {
