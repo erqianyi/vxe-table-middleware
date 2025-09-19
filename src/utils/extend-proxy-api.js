@@ -2,17 +2,20 @@
  * @Description  : 拓展和代理gridApi
  */
 
-import { VxeGrid } from 'vxe-table/es/grid';
+import allMethodsStr from './methods-map';
 
-const vxeGridMethods = Object.keys(VxeGrid.methods || {}) || [];
+const vxeGridMethods = allMethodsStr.split(',') || [];
 // 批量添加getter
 function addGetters(cls, fnNames = []) {
   fnNames.forEach((fnName) => {
-    Object.defineProperty(cls.prototype, fnName, {
-      get() {
-        return this.getMethod(fnName);
-      },
-    });
+    // 检查属性是否已经存在，避免重复定义导致的错误
+    if (!Object.getOwnPropertyDescriptor(cls.prototype, fnName)) {
+      Object.defineProperty(cls.prototype, fnName, {
+        get() {
+          return this.getMethod(fnName);
+        },
+      });
+    }
   });
 }
 // 代理VxeGrid实例方法（**注意目前未区分是否对外抛出的**）
