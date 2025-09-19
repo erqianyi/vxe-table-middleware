@@ -2,6 +2,23 @@
 
 
 
+# [0.3.0](https://github.com/erqianyi/vxe-table-middleware/compare/v0.2.0...v0.3.0) (2025-09-19)
+
+
+### Bug Fixes
+
+* :bug: 避免重复定义getter导致的错误 ([06a634f](https://github.com/erqianyi/vxe-table-middleware/commit/06a634fda4b5032037eb967c67c1bc127e210ff4))
+
+
+### Features
+
+* :sparkles: 适配到vxe-table@3.18.15版本 ([6fa4f5a](https://github.com/erqianyi/vxe-table-middleware/commit/6fa4f5a6f1da3fb94b067ddeca4de981c0c1c0c5))
+
+
+### Performance Improvements
+
+* :zap: 调整grid所有方法的获取方式，减小应用场景打包体积 ([87c148b](https://github.com/erqianyi/vxe-table-middleware/commit/87c148b659ad21b360778fdaf93b6ced29425458))
+
 # [0.2.0](https://github.com/erqianyi/vxe-table-middleware/compare/v0.2.0-beta.2...v0.2.0) (2025-09-13)
 
 # [0.2.0-beta.2](https://github.com/erqianyi/vxe-table-middleware/compare/v0.2.0-beta.1...v0.2.0-beta.2) (2025-08-15)
