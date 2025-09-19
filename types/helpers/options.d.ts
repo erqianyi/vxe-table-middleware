@@ -121,11 +121,32 @@ export interface OptionsHelperIns {
    */
   footerData(footerData: VxeTablePropTypes.FooterData): OptionsHelperIns;
   /**
+   * 用于分组表头，显示为自定义列头，配合 mergeHeaderCells 灵活实现自定义合并
+   * @version vxe-table@3.18.2
+   * @params {boolean} isShow 默认false
+   * @returns OptionsHelperIns
+   */
+  showCustomHeader(isShow: VxeTablePropTypes.ShowCustomHeader): OptionsHelperIns;
+  /**
    * 临时合并指定的单元格 (不能用于展开行，不建议用于固定列、树形结构)
    * @params {array} mergeCells Array<{ row: number, col: number, rowspan: number, colspan: number }>
    * @returns OptionsHelperIns
    */
   mergeCells(mergeCells: VxeTablePropTypes.MergeCells): OptionsHelperIns;
+  /**
+   * 临时合并指定的表头单元格
+   * @version vxe-table@3.18.2
+   * @params {array} mergeHeaderCells Array<{ row: number, col: number, rowspan: number, colspan: number }>
+   * @returns OptionsHelperIns
+   */
+  mergeHeaderCells(mergeHeaderCells: VxeTablePropTypes.MergeHeaderCells): OptionsHelperIns;
+  /**
+   * 临时合并指定的表尾单元格
+   * @version vxe-table@3.18.2
+   * @params {array} mergeFooterCells Array<{ row: number, col: number, rowspan: number, colspan: number }>
+   * @returns OptionsHelperIns
+   */
+  mergeFooterCells(mergeFooterCells: VxeTablePropTypes.MergeFooterCells): OptionsHelperIns;
   /**
    * 临时合并表尾 (不能用于展开行，不建议用于固定列、树形结构)
    * @params {array} mergeFooterItems Array<{ row: number, col: number, rowspan: number, colspan: number }>
@@ -275,11 +296,25 @@ export interface OptionsHelperIns {
    */
   checkboxConfig(checkboxConfig: VxeTablePropTypes.CheckboxConfig): OptionsHelperIns;
   /**
-   * 提示配置项
+   * 表头提示信息配置项
    * @params {object} tooltipConfig 配置项，继承全局配置
    * @returns OptionsHelperIns
    */
   tooltipConfig(tooltipConfig: VxeTablePropTypes.TooltipConfig): OptionsHelperIns;
+  /**
+   * 表头 tooltip 配置项
+   * @version vxe-table@3.16.11
+   * @params {object} config 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  headerTooltipConfig(config: VxeTablePropTypes.HeaderTooltipConfig): OptionsHelperIns;
+  /**
+   * 表尾提示信息配置项
+   * @version vxe-table@3.16.11
+   * @params {object} config 配置项，继承全局配置
+   * @returns OptionsHelperIns
+   */
+  footerTooltipConfig(config: VxeTablePropTypes.FooterTooltipConfig): OptionsHelperIns;
   /**
    * 展开行配置项（不支持虚拟滚动）
    * @params {object} expandConfig 配置项，继承全局配置

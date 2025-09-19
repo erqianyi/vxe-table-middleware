@@ -165,12 +165,42 @@ class OptionsHelperClass {
     return this;
   }
   /**
-   * 临时合并指定的单元格 (不能用于展开行，不建议用于固定列、树形结构)
+   * 用于分组表头，显示为自定义列头，配合 mergeHeaderCells 灵活实现自定义合并
+   * @version vxe-table@3.18.2
+   * @param {boolean} isShow 默认false
+   * @returns this
+   */
+  showCustomHeader(isShow = false) {
+    this._options['showCustomHeader'] = isShow;
+    return this;
+  }
+  /**
+   * 临时合并指定的表头单元格
    * @param {array} mergeCells Array<{ row: number, col: number, rowspan: number, colspan: number }>
    * @returns this
    */
   mergeCells(mergeCells = []) {
     this._options['mergeCells'] = mergeCells;
+    return this;
+  }
+  /**
+   * 临时合并表头 (不能用于展开行，不建议用于固定列、树形结构)
+   * @version vxe-table@3.18.2
+   * @param {array} items Array<{ row: number, col: number, rowspan: number, colspan: number }>
+   * @returns this
+   */
+  mergeHeaderCells(items = []) {
+    this._options['mergeHeaderCells'] = items;
+    return this;
+  }
+  /**
+   * 临时合并指定的表尾单元格
+   * @version vxe-table@3.18.2
+   * @param {array} items Array<{ row: number, col: number, rowspan: number, colspan: number }>
+   * @returns this
+   */
+  mergeFooterCells(items = []) {
+    this._options['mergeFooterCells'] = items;
     return this;
   }
   /**
@@ -383,6 +413,26 @@ class OptionsHelperClass {
    */
   tooltipConfig(tooltipConfig) {
     this._options['tooltipConfig'] = { ...tooltipConfig };
+    return this;
+  }
+  /**
+   * 表头提示信息配置项
+   * @version vxe-table@3.16.11
+   * @param {object} config 配置项，继承全局配置
+   * @returns this
+   */
+  headerTooltipConfig(config = {}) {
+    this._options['headerTooltipConfig'] = { ...config };
+    return this;
+  }
+  /**
+   * 表尾提示信息配置项
+   * @version vxe-table@3.16.11
+   * @param {object} config 配置项，继承全局配置
+   * @returns this
+   */
+  footerTooltipConfig(config = {}) {
+    this._options['footerTooltipConfig'] = { ...config };
     return this;
   }
   /**
