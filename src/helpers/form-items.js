@@ -317,9 +317,13 @@ class FormItemsHelperClass {
    */
   end() {
     const { field, defaultValue, rules, item } = this._current;
-    this._data[field] = defaultValue;
-    this._items.push({ ...item, field });
-    this._rules[field] = rules;
+    if (field) {
+      this._data[field] = defaultValue;
+      this._items.push({ ...item, field });
+      this._rules[field] = rules;
+    } else {
+      this._items.push({ ...item });
+    }
     this._restCurrent();
   }
 }
