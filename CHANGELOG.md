@@ -2,6 +2,13 @@
 
 
 
+## [0.3.1](https://github.com/erqianyi/vxe-table-middleware/compare/v0.3.0...v0.3.1) (2025-09-20)
+
+
+### Bug Fixes
+
+* :bug: 修复formItemsHelper配置无field时undefined问题 ([392f0fa](https://github.com/erqianyi/vxe-table-middleware/commit/392f0fab309c32029456dec09c065130a17cc59b))
+
 # [0.3.0](https://github.com/erqianyi/vxe-table-middleware/compare/v0.2.0...v0.3.0) (2025-09-19)
 
 
