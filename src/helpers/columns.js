@@ -316,12 +316,16 @@ class ColumnsHelperClass {
   }
   /**
    * 子列配置
-   * @param {ColumnsHelperClass} columnsIns 子列配置实例
+   * @param {(ColumnsHelperClass | (param: ColumnsHelperClass) => void)} columnsInsOrFn 子列配置实例或子列配置函数
    * @returns this
    */
-  children(columnsIns) {
-    if (columnsIns instanceof ColumnsHelperClass) {
-      this.column['children'] = columnsIns._getColumns();
+  children(columnsInsOrFn) {
+    if (columnsInsOrFn instanceof ColumnsHelperClass) {
+      this.column['children'] = columnsInsOrFn._getColumns();
+    } else if (typeof columnsInsOrFn === 'function') {
+      const childrenIns = columnsHelper();
+      columnsInsOrFn(childrenIns);
+      this.column['children'] = childrenIns._getColumns();
     } else {
       throw new Error('children 参数异常');
     }

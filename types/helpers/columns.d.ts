@@ -210,10 +210,12 @@ export interface ColumnsHelperIns {
   params(params: { [key: string]: any }): ColumnsHelperIns;
   /**
    * 子列配置
-   * @params {columnsHelperIns} columnsIns 子列配置实例
+   * @params {columnsHelperIns | (param: ColumnsHelperIns) => void} columnsInsOrFn 子列配置实例或子列配置函数
    * @returns ColumnsHelperIns
    */
-  children(columnsIns: ColumnsHelperIns): ColumnsHelperIns;
+  children(
+    columnsInsOrFn: ColumnsHelperIns | ((param: ColumnsHelperIns) => void)
+  ): ColumnsHelperIns;
   /**
    * 插槽配置
    * @params {object} slots {[slotName:string]: string | function }
