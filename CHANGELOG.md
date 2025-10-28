@@ -2,6 +2,19 @@
 
 
 
+# [0.4.0](https://github.com/erqianyi/vxe-table-middleware/compare/v0.3.0...v0.4.0) (2025-10-28)
+
+
+### Bug Fixes
+
+* :bug: 修复formItemsHelper配置无field时undefined问题 ([e4e04a0](https://github.com/erqianyi/vxe-table-middleware/commit/e4e04a0fa727d5bcf516f469b6baacbe1470a8ec))
+
+
+### Features
+
+* :sparkles: 增强columnsHelper工具的children方法 ([cf42237](https://github.com/erqianyi/vxe-table-middleware/commit/cf42237934d8119e6bf58e6f2fe62363909bf069))
+* :sparkles: 版本支持到3.19.3 ([7db0b0f](https://github.com/erqianyi/vxe-table-middleware/commit/7db0b0fc0ad5447cd8232be61e7b870c3aa739d0))
+
 ## [0.3.1](https://github.com/erqianyi/vxe-table-middleware/compare/v0.3.0...v0.3.1) (2025-09-20)
 
 
