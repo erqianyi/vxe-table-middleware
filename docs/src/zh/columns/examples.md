@@ -194,3 +194,151 @@ export default {
 ```
 
 :::
+
+## 分组表头
+
+使用`children`实例方法创建分组表头。
+
+::: tip
+`children`方法有两种使用方式:
+
+- 一种是传入由`columnsHelper`创建的实例
+- 一种是接收一个函数（函数第一个参数为子级构造器的实例，第二个参数为当前构造器的实例）
+  :::
+
+### 方式 1: 传入`columnsHelper`实例
+
+**注：子级实例配置可以和父级再一个文件中，也可以根据实际情况在单独的 js 文件中定义再导入，以提高父级配置方法的可读性！**
+
+::: demo
+
+```vue {33-36,39-47}
+<template>
+  <vxe-grid-wrap ref="gridRef" :grid="grid" />
+</template>
+<script>
+import { optionsHelper, columnsHelper, useVxeGrid } from 'vxe-table-middleware';
+export default {
+  data() {
+    return {
+      grid: null,
+    };
+  },
+  mounted() {
+    this.createTable();
+  },
+  methods: {
+    setGridData() {
+      this.$nextTick(() => {
+        const gridApi = useVxeGrid(this.$refs.gridRef);
+        gridApi.loadData([
+          { name: '张三', age: 18, address: '北京市', phone: '13888888888' },
+          { name: '李四', age: 20, address: '上海市', phone: '13999999999' },
+        ]);
+      });
+    },
+    createTable() {
+      const options = optionsHelper();
+      options.border(true).height(500);
+
+      const columns = columnsHelper();
+      columns.width(80).type('checkbox').fixed('left').end();
+      columns.width(100).type('seq').title('序号').end();
+      // 基本信息分组 start
+      const baseInfoColumn = columnsHelper();
+      baseInfoColumn.field('name').title('姓名').end();
+      baseInfoColumn.field('age').title('年龄').end();
+      columns.title('基本信息').field('baseInfo').align('center').children(baseInfoColumn).end();
+      // 基本信息分组 end
+      // 详细信息分组 start
+      const detailInfoColumn = columnsHelper();
+      detailInfoColumn.field('address').title('地址').end();
+      detailInfoColumn.field('phone').title('电话').end();
+      columns
+        .title('详细信息')
+        .field('detailInfo')
+        .align('center')
+        .children(detailInfoColumn)
+        .end();
+      // 详细信息分组 end
+
+      this.grid = useVxeGrid({ options, columns });
+
+      this.setGridData();
+    },
+  },
+};
+</script>
+```
+
+:::
+
+### 方式 2: 传入函数
+
+::: demo
+
+```vue {37-40,48-51}
+<template>
+  <vxe-grid-wrap ref="gridRef" :grid="grid" />
+</template>
+<script>
+import { optionsHelper, columnsHelper, useVxeGrid } from 'vxe-table-middleware';
+export default {
+  data() {
+    return {
+      grid: null,
+    };
+  },
+  mounted() {
+    this.createTable();
+  },
+  methods: {
+    setGridData() {
+      this.$nextTick(() => {
+        const gridApi = useVxeGrid(this.$refs.gridRef);
+        gridApi.loadData([
+          { name: '张三', age: 18, address: '北京市', phone: '13888888888' },
+          { name: '李四', age: 20, address: '上海市', phone: '13999999999' },
+        ]);
+      });
+    },
+    createTable() {
+      const options = optionsHelper();
+      options.border(true).height(500);
+
+      const columns = columnsHelper();
+      columns.width(80).type('checkbox').fixed('left').end();
+      columns.width(100).type('seq').title('序号').end();
+      // 基本信息分组 start
+      columns
+        .title('基本信息')
+        .field('baseInfo')
+        .align('center')
+        .children((baseInfoColumn) => {
+          baseInfoColumn.field('name').title('姓名').end();
+          baseInfoColumn.field('age').title('年龄').end();
+        })
+        .end();
+      // 基本信息分组 end
+      // 详细信息分组 start
+      columns
+        .title('详细信息')
+        .field('detailInfo')
+        .align('center')
+        .children((detailInfoColumn) => {
+          detailInfoColumn.field('address').title('地址').end();
+          detailInfoColumn.field('phone').title('电话').end();
+        })
+        .end();
+      // 详细信息分组 end
+
+      this.grid = useVxeGrid({ options, columns });
+
+      this.setGridData();
+    },
+  },
+};
+</script>
+```
+
+:::
