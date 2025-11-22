@@ -216,7 +216,7 @@ export interface ColumnsHelperIns {
   children(
     columnsInsOrFn:
       | ColumnsHelperIns
-      | ((param1: ColumnsHelperIns, param2: ColumnsHelperIns) => void)
+      | ((childIns: ColumnsHelperIns, parentIns: ColumnsHelperIns) => void)
   ): ColumnsHelperIns;
   /**
    * 插槽配置

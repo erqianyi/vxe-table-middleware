@@ -316,7 +316,7 @@ class ColumnsHelperClass {
   }
   /**
    * 子列配置
-   * @param {(ColumnsHelperClass | (childIns: ColumnsHelperClass, parentIns: ColumnsHelperClass,) => void)} columnsInsOrFn 子列配置实例或子列配置函数
+   * @param {(ColumnsHelperClass|function)} columnsInsOrFn 子列配置实例或子列配置函数(childIns: ColumnsHelperIns, parentIns: ColumnsHelperIns) => void
    * @returns this
    */
   children(columnsInsOrFn) {
