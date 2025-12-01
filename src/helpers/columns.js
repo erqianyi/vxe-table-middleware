@@ -344,8 +344,19 @@ class ColumnsHelperClass {
    * 完成当前列的配置，开始下一列的配置
    */
   end() {
-    this.columns.push(this.column);
-    this.column = {};
+    const field = this.column.field;
+    if (field) {
+      const target = this.columns.find((item) => item.field === field);
+      if (target) {
+        Object.assign(target, this.column); // 如果存在则做覆盖
+      } else {
+        this.columns.push(this.column);
+      }
+      this.column = {};
+    } else {
+      this.columns.push(this.column);
+      this.column = {};
+    }
   }
 }
 

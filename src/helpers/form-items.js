@@ -3,12 +3,13 @@
  */
 
 import { formItemExtend, decoratorHandler } from '../utils/extend-helper';
-import { isEmpty } from 'xe-utils';
+import { isEmpty, isPlainObject, isUndefined, omit, has } from 'xe-utils';
 class FormItemsHelperClass {
-  constructor() {
+  constructor(formConfig) {
     this._data = {};
     this._items = [];
     this._rules = {};
+    this._others = omit(formConfig, ['data', 'items', 'rules']);
     this._restCurrent();
   }
 
@@ -18,13 +19,14 @@ class FormItemsHelperClass {
       data: this._data,
       items: this._items,
       rules: this._rules,
+      ...this._others,
     };
   }
   // 私有方法，重置当前配置
   _restCurrent() {
     this._current = {
       item: {},
-      rules: [],
+      rules: null,
     };
   }
 
@@ -36,10 +38,11 @@ class FormItemsHelperClass {
    */
   merge(formItemHelperIns) {
     if (formItemHelperIns && formItemHelperIns instanceof FormItemsHelperClass) {
-      const { data, items, rules } = formItemHelperIns._getConfig();
+      const { data, items, rules, ...others } = formItemHelperIns._getConfig();
       Object.assign(this._data, data);
       this._items.push(...items);
       Object.assign(this._rules, rules);
+      Object.assign(this._others, others);
     }
     return this;
   }
@@ -309,7 +312,8 @@ class FormItemsHelperClass {
    * formItemIns.rule({ required: true, message: '请输入' }).rule({max: 30, message: '最多输入30个字'})
    */
   rule(config = {}) {
-    if (!isEmpty(config)) this._current.rules.push(config);
+    if (!isEmpty(config))
+      this._current.rules ? this._current.rules.push(config) : (this._current.rules = [config]);
     return this;
   }
   /**
@@ -318,9 +322,18 @@ class FormItemsHelperClass {
   end() {
     const { field, defaultValue, rules, item } = this._current;
     if (field) {
-      this._data[field] = defaultValue;
-      this._items.push({ ...item, field });
-      this._rules[field] = rules;
+      if (has(this._data, field)) {
+        // 如果已经存在，则更新
+        this._data[field] = isUndefined(defaultValue) ? this._data[field] : defaultValue;
+        this._rules[field] = rules ? rules : this._rules[field];
+        const idx = this._items.findIndex((item) => item.field === field);
+        if (idx !== -1) this._items.splice(idx, 1, { ...item, field });
+      } else {
+        // 如果不存在，则新增
+        this._data[field] = defaultValue;
+        this._items.push({ ...item, field });
+        this._rules[field] = rules || [];
+      }
     } else {
       this._items.push({ ...item });
     }
@@ -328,8 +341,9 @@ class FormItemsHelperClass {
   }
 }
 
-function formItemsHelper() {
-  const ins = new FormItemsHelperClass();
+function formItemsHelper(formConfig = {}) {
+  formConfig = isPlainObject(formConfig) ? formConfig : {};
+  const ins = new FormItemsHelperClass(formConfig);
   return decoratorHandler(ins, formItemExtend);
 }
 

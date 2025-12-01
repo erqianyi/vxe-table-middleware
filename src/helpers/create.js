@@ -29,17 +29,12 @@ class CreateGrid {
   }
 
   createGrid() {
-    const columnsConfig = this.columns ? this.columns._getColumns() : [];
-    const optionsConfig = this.options ? this.options._getOptions() : {};
-    const eventsConfig = this.events ? this.events._getEvents() : {};
-    const formItemsConfig = this.formItems ? this.formItems._getConfig() : {};
-
     // TODO 是否考虑是否重复创建
     const grid = new GridConstructor({
-      columns: columnsConfig,
-      options: optionsConfig,
-      events: eventsConfig,
-      formItems: formItemsConfig,
+      columns: this.columns,
+      options: this.options,
+      events: this.options,
+      formItems: this.formItems,
     });
     return grid.create();
   }
