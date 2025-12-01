@@ -4,23 +4,31 @@ import type { VxeGridMethods } from 'vxe-table';
 import type { OptionsHelperIns } from './options';
 import type { ColumnsHelperIns } from './columns';
 import type { EventsHelperIns } from './events';
-import { FormItemsHelperIns } from './form-items';
+import type { FormItemsHelperIns } from './form-items';
+
+type InstanceOrFn<T> = T | ((param: T) => void);
 
 export class VxeGridWrapComponent extends Vue {}
 
 export interface VxeGridWrapApi extends VxeGridMethods {
   /**
    * 更新修改配置项
-   * @params {OptionsHelperIns} options 配置项实例
+   * @params optionsOrFn 配置项实例或方法
    * @returns Promise
    */
-  updateOptions(options: OptionsHelperIns): Promise<any>;
+  updateOptions(optionsOrFn: InstanceOrFn<OptionsHelperIns>): Promise<any>;
   /**
    * 更新修改列配置项
-   * @params {ColumnsHelperIns} columns 配置项实例
+   * @params {ColumnsHelperIns} columnsOrFn 配置项实例或方法
    * @returns Promise
    */
-  updateColumns(columns: ColumnsHelperIns): Promise<any>;
+  updateColumns(columnsOrFn: InstanceOrFn<ColumnsHelperIns>): Promise<any>;
+  /**
+   * 更新修改表单配置项
+   * @params {FormItemsHelperIns} formItemsOrFn 配置项实例或方法
+   * @returns Promise
+   */
+  updateFormItems(formItemsOrFn: InstanceOrFn<FormItemsHelperIns>): Promise<any>;
 }
 
 type GridConstructor = VueConstructor;

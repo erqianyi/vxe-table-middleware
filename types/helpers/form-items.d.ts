@@ -1,4 +1,6 @@
-import type { VxeFormItemPropTypes, VxeFormDefines } from 'vxe-table';
+import type { VxeFormItemPropTypes, VxeFormDefines, VxeFormProps } from 'vxe-table';
+
+type FormItemsHelperParam = Omit<VxeFormProps, 'data' | 'items' | 'rules'>;
 
 export interface FormItemsHelperIns {
   /**
@@ -160,20 +162,20 @@ export interface FormItemsHelperIns {
   /**
    * 额外的参数（可以用来存放一些私有参数）
    * @params {any} params 参数
-   * @returns this
+   * @returns FormItemsHelperIns
    */
   params(params: VxeFormItemPropTypes.Params): FormItemsHelperIns;
   /**
    * 项渲染器配置项
-   * @param {string} name 渲染器名称
-   * @param {object} renderOptions 针对该渲染器的配置项
-   * @returns this
+   * @params {string} name 渲染器名称
+   * @params {object} renderOptions 针对该渲染器的配置项
+   * @returns FormItemsHelperIns
    */
   itemRender(name: string, renderOptions?: VxeFormItemPropTypes.ItemRender): FormItemsHelperIns;
   /**
    * 插槽配置
-   * @param {object} slots? {[slotName:string]: string | function }
-   * @returns this
+   * @params {object} slots? {[slotName:string]: string | function }
+   * @returns FormItemsHelperIns
    */
   slots(slots: VxeFormItemPropTypes.Slots): FormItemsHelperIns;
   /**
@@ -192,6 +194,7 @@ export interface FormItemsHelperIns {
 
 /**
  * 表单项配置工具函数
+ * @params {object} formConfig? 表单配置
  * @returns FormItemsHelperIns
  */
-export function formItemsHelper(): FormItemsHelperIns;
+export function formItemsHelper(formConfig: FormItemsHelperParam): FormItemsHelperIns;
