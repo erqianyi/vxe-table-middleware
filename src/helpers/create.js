@@ -10,9 +10,32 @@ import { isElement, isPlainObject, has } from 'xe-utils';
 // 缓存表格实例对应的methods代理对象
 export const gridApiMaps = new WeakMap();
 
+// 判断是否为vue实例
+function isVueInstance(obj) {
+  if (!obj || typeof obj !== 'object') return false;
+  const mustHave = ['$el', '$watch', '$on', '$emit', '$data'];
+  return mustHave.every((key) => key in obj && typeof obj[key] !== 'undefined');
+}
 // 是否为VxeGridWrap组件实例
-function isVxeGridWrap(obj) {
-  return obj.$el && isElement(obj.$el) && obj.$el.getAttribute(FLAG_ATTR) === FLAG_NAME;
+function isVxeGridWrap(params) {
+  return params.$el && isElement(params.$el) && params.$el.getAttribute(FLAG_ATTR) === FLAG_NAME;
+}
+function validVxeGridWrap(params, ins) {
+  if (typeof params === 'string') {
+    if (isVueInstance(ins)) {
+      const tarComp = ins.$refs[params];
+      if (!tarComp) throw new Error(`[useVxeGrid] 未能根据${params}找到对应的ref引用`);
+      if (isVxeGridWrap(tarComp)) {
+        return tarComp;
+      } else {
+        throw new Error(`[useVxeGrid] ${params}的ref引用需要为 VxeGridWrap组件实例`);
+      }
+    } else {
+      throw Error(`[useVxeGrid] 若第一个参数为ref引用名称，则第二个参数必传且为Vue组件实例`);
+    }
+  } else {
+    return isVxeGridWrap(params);
+  }
 }
 // 创建Grid的参数是否合法
 function validCreateParams(params) {
@@ -42,17 +65,20 @@ class CreateGrid {
 
 /**
  * 获取表格实例和表格api
- * @param {(object|Element)} params 创建表格的参数或表格组件DOM元素
+ * @param {(object|string|Element)} params 创建表格的参数、ref引用名称或表格组件DOM元素
+ * @param {object} vueInstance? 当前包含该ref索引的vue组件实例this
  * @returns {(function|object)} 表格构造函数 或 表格methods对象
  */
-function useVxeGrid(params) {
+function useVxeGrid(params, vueInstance) {
   if (!params) throw new Error('[useVxeGrid] params is required');
-  if (isVxeGridWrap(params)) {
+  const valid = validVxeGridWrap(params, vueInstance);
+  if (valid) {
+    const compIns = typeof valid === 'boolean' ? params : valid;
     // 返回api代理
-    if (params._isMounted) {
-      if (gridApiMaps.has(params)) return gridApiMaps.get(params);
-      const gridApi = new ExtendAndProxyAPI(params);
-      gridApiMaps.set(params, gridApi);
+    if (compIns._isMounted) {
+      if (gridApiMaps.has(compIns)) return gridApiMaps.get(compIns);
+      const gridApi = new ExtendAndProxyAPI(compIns);
+      gridApiMaps.set(compIns, gridApi);
       return gridApi;
     } else {
       throw new Error('[useVxeGrid] Grid实例尚未创建');

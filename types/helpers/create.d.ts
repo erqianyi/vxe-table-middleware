@@ -50,6 +50,12 @@ type GridElement = HTMLElement | typeof VxeGridWrapComponent;
 export function useVxeGrid(params: CreateOpinions): GridConstructor;
 /**
  * 对已经创建过的表格只获取api工具
+ * @params {string} params ref引用名称
+ * @params {Vue} vueInstance Vue组件实例
+ */
+export function useVxeGrid(params: string, vueInstance: Vue): VxeGridWrapApi;
+/**
+ * 对已经创建过的表格只获取api工具
  * @params {GridElement} params 通过$refs获取的表格实例
  * @returns {VxeGridWrapApi} 获取gridApi
  */
