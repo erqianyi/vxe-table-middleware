@@ -1,7 +1,15 @@
 # 说明
 
 ::: tip
-`useVxeGrid`工具函数根据传入的参数有两个作用，参数传入属性、列、事件等 grid 构造配置时，返回 grid 构造函数，可传入`VxeGridWrap`组件创建 Grid；参数传入 grid 实例时，返回调用 grid 的 API 方法的接口对象。第一个作用不多介绍，本节主要介绍`useVxeGrid`工具函数的第二个作用。
+`useVxeGrid`工具函数根据传入的参数有两个作用，参数传入属性、列、事件、表单等 grid 构造配置时，返回 grid 构造函数，可传入`VxeGridWrap`组件创建 Grid；参数传入grid实例时，返回调用 grid 的 API 方法的接口对象。第一个作用不多介绍，本节主要介绍`useVxeGrid`工具函数的第二个作用。
+:::
+
+::: warning 其他说明
+假设grid实例的ref引用名称为`gridRef`：
+如果将 `useVxeGrid(this.$refs.gridRef)` 的结果赋值给data中的属性使用时会丢失TS类型提示，所以推荐赋值给作用域的变量或直接调用方法。
+另外支持两种相对简便的方式：
+1. 第一个参数传入ref引用名称，第二个参数传入当前组件实例，如 `useVxeGrid('gridRef', this)`;
+2. ===确保 `useVxeGrid` 创建的实例挂在完成后===，将 `this.$refs.gridRef` 赋值给data的属性，如 `$gridWrap`，后续均可以通过 `useVxeGrid(this.$gridWrap)`来获取Api实例。
 :::
 
 ## 使用
