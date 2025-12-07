@@ -40,26 +40,26 @@ export class ExtendAndProxyAPI extends GridProxyAPI {
 
   /**
    * 更新修改配置项
-   * @param {object} options 配置项实例 - OptionsHelperIns
+   * @param {(object|function)} optionsOrFn 配置项实例或方法 - OptionsHelperIns | (optionsOrFn: OptionsHelperIns) => void
    * @returns Promise
    */
-  updateOptions(options) {
-    return this.gridComp.updateOptions(options);
+  updateOptions(optionsOrFn) {
+    return this.gridComp.updateOptions(optionsOrFn);
   }
   /**
    * 更新修改列配置项
-   * @param {object} columns 配置项实例 - ColumnsHelperIns
+   * @param {(object|function)} columnsOrFn 配置项实例或方法 - ColumnsHelperIns | (columnsOrFn: ColumnsHelperIns) => void
    * @returns Promise
    */
-  updateColumns(columns) {
-    return this.gridComp.updateColumns(columns);
+  updateColumns(columnsOrFn) {
+    return this.gridComp.updateColumns(columnsOrFn);
   }
   /**
    * 更新修改表单配置项
-   * @param {object} formItems 配置项实例 - FormItemsHelperIns
+   * @param {(object|function)} formItemsOrFn 配置项实例或方法 - FormItemsHelperIns | (formItemsOrFn: FormItemsHelperIns) => void
    * @returns Promise
    */
-  updateFormItems(formItems) {
-    return this.gridComp.updateFormItems(formItems);
+  updateFormItems(formItemsOrFn) {
+    return this.gridComp.updateFormItems(formItemsOrFn);
   }
 }
