@@ -60,32 +60,32 @@ module.exports = {
               children: ['component/guide', 'component/examples'],
             },
             {
-              title: 'Grid配置',
+              title: 'optionsHelper',
               collapsable: false,
               children: ['options/guide', 'options/examples'],
             },
             {
-              title: '列配置',
+              title: 'columnsHelper',
               collapsable: false,
               children: ['columns/guide', 'columns/examples'],
             },
             {
-              title: '事件配置',
+              title: 'eventsHelper',
               collapsable: false,
               children: ['events/guide', 'events/examples'],
             },
             {
-              title: 'Grid方法',
+              title: 'useVxeGrid',
               collapsable: false,
               children: ['methods/guide', 'methods/examples'],
             },
             {
-              title: '查询表单配置',
+              title: 'formItemsHelper',
               collapsable: false,
               children: ['form-items/guide', 'form-items/examples'],
             },
             {
-              title: '拓展方法',
+              title: '拓展',
               collapsable: false,
               children: ['extend/guide'],
             },
