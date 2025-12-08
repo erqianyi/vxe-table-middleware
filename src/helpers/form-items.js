@@ -327,7 +327,7 @@ class FormItemsHelperClass {
         this._data[field] = isUndefined(defaultValue) ? this._data[field] : defaultValue;
         this._rules[field] = rules ? rules : this._rules[field];
         const idx = this._items.findIndex((item) => item.field === field);
-        if (idx !== -1) this._items.splice(idx, 1, { ...item, field });
+        if (idx !== -1) Object.assign(this._items[idx], item);
       } else {
         // 如果不存在，则新增
         this._data[field] = defaultValue;

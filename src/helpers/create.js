@@ -56,7 +56,7 @@ class CreateGrid {
     const grid = new GridConstructor({
       columns: this.columns,
       options: this.options,
-      events: this.options,
+      events: this.events,
       formItems: this.formItems,
     });
     return grid.create();

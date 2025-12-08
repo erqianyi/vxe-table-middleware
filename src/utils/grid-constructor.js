@@ -17,6 +17,10 @@ export class GridConstructor {
   }
 
   create() {
+    const originOptionIns = this.options;
+    const originColumnsIns = this.columns;
+    const originEventsIns = this.events;
+    const originFormItemsIns = this.formItems;
     const columnsConfig = this.columns ? this.columns._getColumns() : [];
     const optionsConfig = this.options ? this.options._getOptions() : {};
     const eventsConfig = this.events ? this.events._getEvents() : {};
@@ -25,10 +29,10 @@ export class GridConstructor {
       data() {
         return {
           // 保存原始实例
-          originOptionIns: this.options,
-          originColumnsIns: this.columns,
-          originEventsIns: this.events,
-          originFormItemsIns: this.formItems,
+          originOptionIns,
+          originColumnsIns,
+          originEventsIns,
+          originFormItemsIns,
           // 实例配置
           optionsConfig,
           columnsConfig,
@@ -56,7 +60,7 @@ export class GridConstructor {
           if (isFunction(optionsOrFn)) {
             if (this.originOptionIns) {
               optionsOrFn(this.originOptionIns);
-              opts = this.originOptionIns._getConfig();
+              opts = this.originOptionIns._getOptions();
             } else {
               throw new Error(
                 '[useVxeGrid] `updateOptions`方法参数为方法时，确保在表格初始化时已注入OptionsHelper实例'
@@ -92,14 +96,14 @@ export class GridConstructor {
           } else {
             throw new Error('[useVxeGrid] `updateColumns`方法参数为方法或columnsHelper实例');
           }
-          if (cols.some((col) => !col.field)) {
-            console.error('[useVxeGrid] 更新列失败，列配置项必须包含field属性');
-            return;
-          }
+          // if (cols.some((col) => !col.field)) {
+          //   console.error('[useVxeGrid] 更新列失败，列配置项必须包含field属性');
+          //   return;
+          // }
           cols.forEach((col) => {
             const column = this.columnsConfig.find((item) => item.field === col.field);
             if (column) mergeWithArrayOverride(column, col);
-            else console.error(`[useVxeGrid] 更新列失败，原配置项未找到${col.field}列`);
+            else throw new Error(`[useVxeGrid] 更新列失败，原配置项未找到${col.field}列`);
           });
           this.columnsConfig = [...this.columnsConfig];
           return this.$nextTick();
@@ -121,13 +125,20 @@ export class GridConstructor {
                 '[useVxeGrid] `updateFormItems`方法参数为方法时，确保在表格初始化时已注入FormItemsHelper实例'
               );
             }
-          }
-          if (formItemsOrFn._getConfig) {
+          } else if (formItemsOrFn._getConfig) {
             formItemsConf = formItemsOrFn._getConfig();
           } else {
             throw new Error('[useVxeGrid] `updateFormItems`方法参数为方法或formItemsHelper实例');
           }
-          this.formItemsConfig = { ...mergeWithArrayOverride(this.formItemsConfig, formItemsConf) };
+          const { items, ...others } = this.formItemsConfig;
+          const { items: newItems, ...newOthers } = formItemsConf;
+          newItems.forEach((item) => {
+            const index = items.findIndex((i) => i.field === item.field);
+            if (index !== -1) items[index] = { ...mergeWithArrayOverride(items[index], item) };
+            else throw new Error(`[useVxeGrid] 更新列失败，原配置项未找到${item.field}表单项`);
+          });
+          const othersConf = { ...mergeWithArrayOverride(others, newOthers) };
+          this.formItemsConfig = { ...othersConf, items };
           return this.$nextTick();
         },
         // 调用VxeGrid组件的api
