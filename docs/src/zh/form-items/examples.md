@@ -4,6 +4,62 @@
 调用`formItemsHelper`方法，返回配置实例，可以通过链式调用方法的方式来构建`vxe-grid` 中`form-config`的表单项配置。实例大部分方法名与`form-config.items`的配置属性一致，少数新增和调整，以下详细说明。
 :::
 
+## 配置表单属性
+
+配置查询表单显示border、标题宽度为'100px'、显示标题背景色、所有表达项统一设置为12列：
+
+::: demo 通过调用`formItemsHelper`方法时传入配置项
+
+```vue {18}
+<template>
+  <vxe-grid-wrap ref="gridRef" :grid="grid" />
+</template>
+<script>
+import { columnsHelper, formItemsHelper, useVxeGrid } from 'vxe-table-middleware';
+export default {
+  data() {
+    return {
+      grid: null,
+    };
+  },
+  mounted() {
+    this.initGrid();
+  },
+  methods: {
+    initGrid() {
+      // 配置表单
+      const formItems = formItemsHelper({ border: true, titleWidth: 100, titleBackground: true, span: 12 });
+      formItems.field('name', '').title('名称').itemRender('VxeInput').end();
+      formItems.field('age', '').title('年龄').itemRender('VxeNumberInput', { props: { min: 0, digits: 0 } }).end();
+      formItems
+        .itemRender('VxeButtonGroup', {
+          options: [
+            { type: 'submit', content: '搜索', status: 'primary' },
+            { type: 'reset', content: '重置' },
+          ],
+        })
+        .align('center')
+        .span(24)
+        .end();
+
+      // 配置列
+      const columns = columnsHelper();
+      columns.type('checkbox').fixed('left').width(80).end();
+      columns.field('name').title('名称').end();
+      columns.field('age').title('年龄').end();
+      columns.field('address').title('地址').end();
+      columns.field('creator').title('创建人').end();
+      columns.field('createDate').title('创建日期').end();
+
+      this.grid = useVxeGrid({ columns, formItems });
+    },
+  },
+};
+</script>
+```
+
+:::
+
 ## 新增的
 
 ### merge 合并配置
