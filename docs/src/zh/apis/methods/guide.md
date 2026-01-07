@@ -5,13 +5,15 @@
 :::
 
 ::: warning 其他说明
-假设 grid 实例的 ref 引用名称为`gridRef`：
-如果将 `useVxeGrid(this.$refs.gridRef)` 的结果赋值给 data 中的属性使用时会丢失 TS 类型提示，所以推荐赋值给作用域的变量或直接调用方法。
+这里需要说明一点：
+组件实例方法只能通过**API实例**调用，通过`$ref`获取组件实例直接调用是无效的，这种做法一方面为了TS类型提示，另一方面是方便拓展。
+如何获取API实例呢，假设 grid 实例的 ref 引用名称为`gridRef`，则`useVxeGrid(this.$refs.gridRef)`会返回相应的API实例。
+需要注意的是，如果将 `useVxeGrid(this.$refs.gridRef)` 的结果赋值给vue组件的data中的属性使用时会丢失 TS 类型提示，所以推荐赋值给作用域的变量或直接调用方法。
 另外支持两种相对简便的方式：
 
 1. 第一个参数传入 ref 引用名称，第二个参数传入当前组件实例，如 `useVxeGrid('gridRef', this)`;
-2. **确保 `useVxeGrid` 创建的实例挂在完成后**，将 `this.$refs.gridRef` 赋值给 data 的属性，如 `$gridWrap`，后续均可以通过 `useVxeGrid(this.$gridWrap)`来获取 Api 实例。
-   :::
+2. **确保 `useVxeGrid` 创建的实例挂在完成后**，将 `this.$refs.gridRef` 赋值给 data 的属性，如 `$gridWrap`，后续均可以通过 `useVxeGrid(this.$gridWrap)`来获取 API实例。
+:::
 
 ## 使用
 

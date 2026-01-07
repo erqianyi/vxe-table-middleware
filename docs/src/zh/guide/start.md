@@ -171,19 +171,19 @@ Vue.use(VxeGridWrap);
 
 以下部分类型提示示例：
 
-![optionsHelper](../.vuepress/assets/images/options-tip-1.png)
-![optionsHelper](../.vuepress/assets/images/options-tip-2.png)
-![optionsHelper](../.vuepress/assets/images/options-tip-3.png)
-![optionsHelper](../.vuepress/assets/images/options-tip-4.png)
+![optionsHelper](../../.vuepress/assets/images/options-tip-1.png)
+![optionsHelper](../../.vuepress/assets/images/options-tip-2.png)
+![optionsHelper](../../.vuepress/assets/images/options-tip-3.png)
+![optionsHelper](../../.vuepress/assets/images/options-tip-4.png)
 
-![columnsHelper](../.vuepress/assets/images/column-tip-1.png)
-![columnsHelper](../.vuepress/assets/images/column-tip-2.png)
-![columnsHelper](../.vuepress/assets/images/column-tip-3.png)
+![columnsHelper](../../.vuepress/assets/images/column-tip-1.png)
+![columnsHelper](../../.vuepress/assets/images/column-tip-2.png)
+![columnsHelper](../../.vuepress/assets/images/column-tip-3.png)
 
-![eventsHelper](../.vuepress/assets/images/event-tip-1.png)
+![eventsHelper](../../.vuepress/assets/images/event-tip-1.png)
 
-![useVxeGrid](../.vuepress/assets/images/create-tip-1.png)
-![useVxeGrid](../.vuepress/assets/images/create-tip-2.png)
+![useVxeGrid](../../.vuepress/assets/images/create-tip-1.png)
+![useVxeGrid](../../.vuepress/assets/images/create-tip-2.png)
 
-![gridApi](../.vuepress/assets/images/api-tip-1.png)
-![gridApi](../.vuepress/assets/images/api-tip-2.png)
+![gridApi](../../.vuepress/assets/images/api-tip-1.png)
+![gridApi](../../.vuepress/assets/images/api-tip-2.png)

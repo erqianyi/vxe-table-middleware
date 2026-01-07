@@ -40,6 +40,27 @@ module.exports = {
         },
         nav: [
           {
+            text: '介绍',
+            link: '/zh/guide/about',
+          },
+          {
+            text: '组件',
+            link: '/zh/component/guide',
+          },
+          {
+            text: 'APIs',
+            link: '/zh/apis/options/guide',
+          },
+          {
+            text: '拓展',
+            link: '/zh/extend/guide',
+          },
+          {
+            text: '更新日志',
+            link: 'https://github.com/erqianyi/vxe-table-middleware/blob/master/CHANGELOG.md',
+            target: '_blank',
+          },
+          {
             text: 'Github',
             link: 'https://github.com/erqianyi/vxe-table-middleware',
             target: '_blank',
@@ -51,14 +72,9 @@ module.exports = {
           },
         ],
         sidebar: {
-          '/zh/': [
-            'about',
-            'start',
-            {
-              title: '组件',
-              collapsable: false,
-              children: ['component/guide', 'component/examples'],
-            },
+          '/zh/guide/': ['about', 'start'],
+          '/zh/component/': ['guide', 'examples'],
+          '/zh/apis/': [
             {
               title: 'optionsHelper',
               collapsable: false,
@@ -75,19 +91,21 @@ module.exports = {
               children: ['events/guide', 'events/examples'],
             },
             {
-              title: 'useVxeGrid',
-              collapsable: false,
-              children: ['methods/guide', 'methods/examples'],
-            },
-            {
               title: 'formItemsHelper',
               collapsable: false,
               children: ['form-items/guide', 'form-items/examples'],
             },
             {
+              title: 'useVxeGrid',
+              collapsable: false,
+              children: ['methods/guide', 'methods/examples'],
+            },
+          ],
+          '/zh/exted/': [
+            {
               title: '拓展',
               collapsable: false,
-              children: ['extend/guide'],
+              children: ['guide'],
             },
           ],
         },

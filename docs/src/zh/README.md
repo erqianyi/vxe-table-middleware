@@ -4,7 +4,7 @@ heroImage: /avatar.png
 heroText: VxeTableMiddleware
 tagline: VxeTable表格中间件说明文档
 actionText: 快速上手 →
-actionLink: /zh/about/
+actionLink: /zh/guide/about/
 features:
   - title: 类型提示
     details: Vue2开发场景实现一定的TypeScript类型提示方案，提升开发体验和效率
