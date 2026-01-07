@@ -2,6 +2,24 @@
 
 
 
+# [0.5.0](https://github.com/erqianyi/vxe-table-middleware/compare/v0.4.0...v0.5.0) (2026-01-07)
+
+
+### Bug Fixes
+
+* :bug: 修复一些问题 ([c3359d3](https://github.com/erqianyi/vxe-table-middleware/commit/c3359d3362f5bb632b2a1ffdd077f30422245a89))
+
+
+### Features
+
+* :sparkles: 增强更新配置的方法 ([52a326a](https://github.com/erqianyi/vxe-table-middleware/commit/52a326aaaf788a9ae31e593bcb3e4ce9b8d0fc68))
+
+
+### Performance Improvements
+
+* :zap: childern方法新增父级实例为第二个参数 ([32fb19b](https://github.com/erqianyi/vxe-table-middleware/commit/32fb19b3448ec882795428dd3f3d1345b74f2e18))
+* :zap: 提升useVxeGrid、updateOptions、updateColumns、updateFormItems可应用性 ([c728892](https://github.com/erqianyi/vxe-table-middleware/commit/c72889267b2f27f3606b96551379aafbddbbcfa9))
+
 # [0.4.0](https://github.com/erqianyi/vxe-table-middleware/compare/v0.3.0...v0.4.0) (2025-10-28)
 
 
